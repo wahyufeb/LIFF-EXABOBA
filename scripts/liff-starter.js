@@ -89,3 +89,12 @@ const profileData = async () => {
     console.error(error)
   }
 }
+
+// HANDLE BUTTON NAVIGATION BAR
+btnHome.addEventListener('click', () => {
+  homeComponent.classList.remove('hidden')
+})
+
+btnCart.addEventListener('click', () => {
+  cartComponent.classList.remove('hidden')
+})
