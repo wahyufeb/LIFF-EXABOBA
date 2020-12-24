@@ -16,12 +16,19 @@ const routeMode = () => {
   localStorage.setItem('ROUTE', route);
   if(route === 'home') {
     homeComponent.classList.remove('hidden')
-    btnHome.classList.add('text-red-500 p-2 rounded-full bg-red-200')
+    btnHome.classList.add('text-red-500')
+    btnHome.classList.add('p-2')
+    btnHome.classList.add('rounded-full')
+    btnHome.classList.add('bg-red-200')
     btnCart.classList.add('text-white')
   }else{
     cartComponent.classList.remove('hidden')
+    btnCart.classList.add('text-white')
+    btnCart.classList.add('text-red-500')
+    btnCart.classList.add('p-2')
+    btnCart.classList.add('rounded-full')
+    btnCart.classList.add('bg-red-200')
     btnHome.classList.add('text-white')
-    btnCart.classList.add('text-red-500 p-2 rounded-full bg-red-200')
   }
 }
 const init = async (liffId) => {
