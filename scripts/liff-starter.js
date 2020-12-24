@@ -32,7 +32,7 @@ const wrapper = document.querySelector('#wrapper')
 const loginSection = document.querySelector('#login-section')
 
 const initializeApp = () => {
-  if(liff.isLoggedIn()) {
+  if(liff.isLoggedIn() && liff.isInClient()) {
     loginSection.classList.add('hidden')
     wrapper.classList.remove('hidden')
     profileData()
