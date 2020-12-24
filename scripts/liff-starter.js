@@ -1,10 +1,29 @@
 const loader = document.querySelector('#loader')
+const homeComponent = document.querySelector('#home')
+const cartComponent = document.querySelector('#cart')
+
+const btnHome = document.querySelector('#btn-home')
+const btnCart = document.querySelector('#btn-cart')
 
 window.onload = () => {
+  routeMode()
   const liffId = '1655387498-BJl6w9xY'
   init(liffId)
 }
 
+const routeMode = () => {
+  const route = localStorage.getItem('ROUTE') || 'home'
+  localStorage.setItem('ROUTE', route);
+  if(route === 'home') {
+    homeComponent.classList.remove('hidden')
+    btnHome.classList.add('text-red-500 p-2 rounded-full bg-red-200')
+    btnCart.classList.add('text-white')
+  }else{
+    cartComponent.classList.remove('hidden')
+    btnHome.classList.add('text-white')
+    btnCart.classList.add('text-red-500 p-2 rounded-full bg-red-200')
+  }
+}
 const init = async (liffId) => {
   try {
     const initialize = await liff.init({ liffId })
