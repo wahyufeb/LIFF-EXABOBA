@@ -139,13 +139,13 @@ const addToCart = (id) => {
     localStorage.setItem('CART', [JSON.stringify(cart)])
   }else{
     const cartData = JSON.parse(cartStorage)
-    const checkItemExist = cardData.find(item => item.id === id)
+    const checkItemExist = cartData.find(item => item.id === id)
     if(checkItemExist) {
       const indexItemId = cartData.findIndex(item => item.id === id);
-      const itemId = cardData[indexItemId]
+      const itemId = cartData[indexItemId]
       itemId.qty = itemId.qty + 1
       itemId.subtotal = itemId.price * itemId.qty
-      cart = cardData
+      cart = cartData
       localStorage.setItem('CART', [JSON.stringify(cart)])
     }else{
       checkItemExist.qty = 1
