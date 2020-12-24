@@ -134,18 +134,25 @@ const addToCart = (id) => {
     const itemId = listMenu.find(item => item.id === id)
     itemId.qty = 1
     itemId.subtotal = itemId.price * itemId.qty
+
     cart.push(itemId)
     localStorage.setItem('CART', [JSON.stringify(cart)])
   }else{
     const cartData = JSON.parse(cartStorage)
-    const indexItemId = cartData.findIndex(item => item.id === id);
-    const itemId = cardData[indexItemId]
-
-    itemId.qty = itemId.qty + 1
-    itemId.subtotal = itemId.price * itemId.qty
-
-    cart = cardData
-    localStorage.setItem('CART', [JSON.stringify(cartData)])
+    const checkItemExist = cardData.find(item => item.id === id)
+    if(checkItemExist) {
+      const indexItemId = cartData.findIndex(item => item.id === id);
+      const itemId = cardData[indexItemId]
+      itemId.qty = itemId.qty + 1
+      itemId.subtotal = itemId.price * itemId.qty
+      cart = cardData
+      localStorage.setItem('CART', [JSON.stringify(cart)])
+    }else{
+      checkItemExist.qty = 1
+      checkItemExist.subtotal = itemId.price * itemId.qty
+      cart.push(checkItemExist)
+      localStorage.setItem('CART', [JSON.stringify(cart)])
+    }
   }
 }
 
