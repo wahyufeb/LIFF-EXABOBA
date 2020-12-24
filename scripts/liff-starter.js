@@ -37,9 +37,13 @@ loginBtn.addEventListener('click', () => {
 const profileName = document.querySelector('#profile-name');
 
 const profileData = async () => {
-  const profile = await liff.getProfile
-  const name = await profile.displayName
-  console.log(profile)
-  console.log(name)
-  profileName.textContent = name
+  try {
+    const profile = await liff.getProfile
+    const name = await profile.displayName
+    console.log(profile)
+    console.log(name)
+    profileName.textContent = name
+  } catch (error) {
+    console.error(error)
+  }
 }
