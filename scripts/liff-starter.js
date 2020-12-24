@@ -148,9 +148,10 @@ const addToCart = (id) => {
       cart = cartData
       localStorage.setItem('CART', [JSON.stringify(cart)])
     }else{
-      checkItemExist.qty = 1
-      checkItemExist.subtotal = itemId.price * itemId.qty
-      cart.push(checkItemExist)
+      console.error(checkItemExist)
+      // checkItemExist.qty = 1
+      // checkItemExist.subtotal = itemId.price * itemId.qty
+      // cart.push(checkItemExist)
       localStorage.setItem('CART', [JSON.stringify(cart)])
     }
   }
