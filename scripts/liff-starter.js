@@ -1,3 +1,5 @@
+const loader = document.querySelector('#loader')
+
 window.onload = () => {
   const liffId = '1655387498-BJl6w9xY'
   init(liffId)
@@ -19,9 +21,11 @@ const initializeApp = () => {
     loginSection.classList.add('hidden')
     wrapper.classList.remove('hidden')
     profileData()
+    loader.classList.add('hidden')
   }else{
     loginSection.classList.add('block')
     wrapper.classList.add('hidden')
+    loader.classList.add('hidden')
   }
 }
 
