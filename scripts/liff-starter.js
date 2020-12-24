@@ -11,11 +11,13 @@ const init = async (liffId) => {
     console.error(error)
   }
 }
-const container = document.querySelector('.container')
+const wrapper = document.querySelector('#wrapper')
+const loginSection = document.querySelector('#login-section')
 
 const initializeApp = () => {
   if(liff.isLoggedIn()) {
-    container.classList.remove('hidden')
+    wrapper.classList.remove('hidden')
+    loginSection.classList.add('hidden')
   }else{
     console.error("Not Logged")
   }
