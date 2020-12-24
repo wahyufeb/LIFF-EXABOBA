@@ -38,7 +38,7 @@ const profileName = document.querySelector('#profile-name');
 
 const profileData = async () => {
   try {
-    const profile = await liff.getProfile
+    const profile = await liff.getProfile()
     const name = await profile.displayName
     console.log(profile)
     console.log(name)
