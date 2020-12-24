@@ -5,6 +5,8 @@ const cartComponent = document.querySelector('#cart')
 const btnHome = document.querySelector('#btn-home')
 const btnCart = document.querySelector('#btn-cart')
 
+let route = 'cart'
+
 window.onload = () => {
   routeMode()
   const liffId = '1655387498-BJl6w9xY'
@@ -12,8 +14,6 @@ window.onload = () => {
 }
 
 const routeMode = () => {
-  const route = localStorage.getItem('ROUTE') || 'cart'
-  localStorage.setItem('ROUTE', route);
   if(route === 'home') {
     homeComponent.classList.remove('hidden')
     btnHome.classList.add('text-red-500')
@@ -93,8 +93,12 @@ const profileData = async () => {
 // HANDLE BUTTON NAVIGATION BAR
 btnHome.addEventListener('click', () => {
   homeComponent.classList.remove('hidden')
+  cartComponent.classList.add('hidden')
+  route = 'home'
 })
 
 btnCart.addEventListener('click', () => {
+  homeComponent.classList.add('hidden')
   cartComponent.classList.remove('hidden')
+  route = 'cart'
 })
