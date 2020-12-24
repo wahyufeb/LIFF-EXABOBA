@@ -18,13 +18,13 @@ const loginSection = document.querySelector('#login-section')
 
 const initializeApp = () => {
   if(liff.isLoggedIn()) {
-    loginSection.classList.add('hidden')
-    wrapper.classList.remove('hidden')
-    profileData()
+    // loginSection.classList.add('hidden')
+    // wrapper.classList.remove('hidden')
+    // profileData()
     loader.classList.add('hidden')
   }else{
-    loginSection.classList.add('block')
-    wrapper.classList.add('hidden')
+    // loginSection.classList.add('block')
+    // wrapper.classList.add('hidden')
     loader.classList.add('hidden')
   }
 }
@@ -51,8 +51,8 @@ const profileData = async () => {
 
     picture.setAttribute('src', profile.pictureUrl)
     picture.setAttribute('alt', 'Photo Profile')
-    picture.setAttribute('width', '30px')
-    picture.setAttribute('height', '30px')
+    picture.setAttribute('width', '40px')
+    picture.setAttribute('height', '40px')
     picture.classList.add('rounded-full')
 
     profileName.textContent = name

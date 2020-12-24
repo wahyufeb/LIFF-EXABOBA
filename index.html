@@ -5,24 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JAJANin</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
-<body>
+<body class="bg-gray-200">
   <div id="loader" class="w-screen h-screen bg-white absolute left-0 top-0 flex justify-center items-center">
     <img src="./assets/loader.gif" alt="loader">
   </div>
-  <div class="h-screen flex justify-center items-center bg-gray-200">
-    <div id="login-section" class="w-8/12 h-8/12 md:w-4/12 md:h-4/12 p-6 bg-white rounded-lg">
+  <div class="h-screen flex justify-center items-center">
+    <div id="login-section" class="hidden w-8/12 h-8/12 md:w-4/12 md:h-4/12 p-6 bg-white rounded-lg">
       <h2 class="text-3xl text-purple-500 font-bold">Jajanin</h2>
       <p class="my-4 text-gray-700">Silahkan login terlebih dahulu, sebelum anda memesan makanan dan minuman di aplikasi jajanin</p>
       <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-400" id="login">LOGIN</button>
     </div>
-    <div id="wrapper" class="hidden w-8/12 h-8/12 md:w-6/12 md:h-6/12 p-6 bg-white rounded-lg">
+    <div id="wrapper" class=" w-8/12 h-8/12 md:w-6/12 md:h-6/12 p-6 bg-white rounded-lg">
       <div id="profile-section" class="flex justify-between">
-        <h1 id="profile-image"></h1>
+        <h1 id="profile-image">asdsa</h1>
       </div>
       <div class="my-6">
-        <p>Halo Selamat Datang <span id="profile-name"></span>, silahkan pilih makanan yang tersedia dibawah</p>
+        <p class="p-2 bg-purple-300 text-gray-700 rounded-lg">Halo Selamat Datang <span id="profile-name"></span>, silahkan pilih makanan yang tersedia dibawah</p>
+      </div>
+      <div class="daftar-menu flex flex-col overflow-y-auto p-4">
+        <div class="flex justify-between items-center shadow bg-white rounded-lg mb-4 px-4 py-2">
+          <div class="flex justify-center items-center space-x-4">
+            <img class="w-16 h-16 object-cover" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoconuts.co%2Fwp-content%2Fuploads%2F2019%2F08%2FHei-Boba-1024x1024.jpg&f=1&nofb=1" alt="image">
+            <div class="my-2">
+              <h4 class="text-xl">Nama</h4>
+              <h4 class="text-lg">Rp. 20.000</h4>
+            </div>
+          </div>
+          <div >
+            <button class="w-8 h-8 bg-purple-400 m-2 flex items-center justify-center rounded-full">
+              <svg class="w-6 h-6" fill="#fff" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-between items-center shadow bg-white rounded-lg mb-4 px-4 py-2">
+          <div class="flex justify-center items-center space-x-4">
+            <img class="w-16 h-16 object-cover" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoconuts.co%2Fwp-content%2Fuploads%2F2019%2F08%2FHei-Boba-1024x1024.jpg&f=1&nofb=1" alt="image">
+            <div class="my-2">
+              <h4 class="text-xl">Nama</h4>
+              <h4 class="text-lg">Rp. 20.000</h4>
+            </div>
+          </div>
+          <div >
+            <button class="w-8 h-8 bg-purple-400 m-2 flex items-center justify-center rounded-full">
+              <svg class="w-6 h-6" fill="#fff" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-between items-center shadow bg-white rounded-lg mb-4 px-4 py-2">
+          <div class="flex justify-center items-center space-x-4">
+            <img class="w-16 h-16 object-cover" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoconuts.co%2Fwp-content%2Fuploads%2F2019%2F08%2FHei-Boba-1024x1024.jpg&f=1&nofb=1" alt="image">
+            <div class="my-2">
+              <h4 class="text-xl">Nama</h4>
+              <h4 class="text-lg">Rp. 20.000</h4>
+            </div>
+          </div>
+          <div >
+            <button class="w-8 h-8 bg-purple-400 m-2 flex items-center justify-center rounded-full">
+              <svg class="w-6 h-6" fill="#fff" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
