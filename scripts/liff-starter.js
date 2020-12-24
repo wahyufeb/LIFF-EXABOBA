@@ -20,6 +20,7 @@ const initializeApp = () => {
     wrapper.classList.remove('hidden')
     profileData()
   }else{
+    loginSection.classList.add('block')
     wrapper.classList.add('hidden')
   }
 }
