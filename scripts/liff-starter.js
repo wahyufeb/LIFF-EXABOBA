@@ -91,9 +91,7 @@ const profileData = async () => {
 }
 
 // LIST MENU SECTION
-const loadListMenu = () => {
-  let listData = ''
-  const listMenu = [
+const listMenu = [
     { id:1, name: 'Strawberry Bubble Tea', price:60000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2Ffd%2Fd8%2Feefdd8f39672b0d86f6f19dc53bbed1a--strawberry-tea-milk-tea.jpg&f=1&nofb=1' },
     { id:2, name: 'Thai Iced Milk Tea', price:50000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0234%2F6273%2Fproducts%2Fthai_tea_buddha_bubbles_boba_a_large.jpg%3Fv%3D1429819336&f=1&nofb=1' },
     { id:3, name: 'Honeydew Bubble Tea', price:35000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1161%2F4842%2Fproducts%2Fhoneydew_bubble_tea_2_grande.jpg%3Fv%3D1479238222&f=1&nofb=1' },
@@ -101,6 +99,9 @@ const loadListMenu = () => {
     { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
     { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
   ]
+
+const loadListMenu = () => {
+  let listData = ''
 
   listMenu.map(menu => {
     listData += `
@@ -113,7 +114,7 @@ const loadListMenu = () => {
         </div>
       </div>
       <div >
-        <button class="w-8 h-8 text-red-500 bg-red-200 m-2 flex items-center justify-center rounded-lg">
+        <button class="w-8 h-8 text-red-500 bg-red-200 m-2 flex items-center justify-center rounded-lg" onClick="addToCart(${menu.id})">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
         </button>
       </div>
@@ -122,6 +123,27 @@ const loadListMenu = () => {
   });
 
   homeComponent.innerHTML = listData
+}
+
+// CART SECTION
+const cart = []
+const addToCart = (id) => {
+  let cartStorage = localStorage.getItem('CART') || false
+  const itemId = listMenu.find(item => item.id === id)
+  itemId.qty = 1
+  itemId.subtotal = itemId.price * itemId.qty
+
+  console.log('============')
+  console.log(id)
+  console.log(itemId)
+  console.log('============')
+
+  cart.push(itemId)
+  if(!cartStorage) {
+    localStorage.setItem('CART', [JSON.stringify(itemId)])
+  }else{
+    localStorage.setItem('CART', [...cartStorage, JSON.stringify(itemId)])
+  }
 }
 
 // HANDLE BUTTON NAVIGATION BAR
