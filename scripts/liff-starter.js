@@ -129,21 +129,22 @@ const loadListMenu = () => {
 const cart = []
 const addToCart = (id) => {
   let cartStorage = localStorage.getItem('CART') || false
-  const itemId = listMenu.find(item => item.id === id)
-  itemId.qty = 1
-  itemId.subtotal = itemId.price * itemId.qty
 
-  console.log('============')
-  console.log(id)
-  console.log(itemId)
-  console.log('============')
-
-  cart.push(itemId)
   if(!cartStorage) {
+    const itemId = listMenu.find(item => item.id === id)
+    itemId.qty = 1
+    itemId.subtotal = itemId.price * itemId.qty
+    cart.push(itemId)
     localStorage.setItem('CART', [JSON.stringify(cart)])
   }else{
-    let cartData = JSON.parse(cartStorage)
-    cartData.push(itemId)
+    const cartData = JSON.parse(cartStorage)
+    const indexItemId = cartData.findIndex(item => item.id === id);
+    const itemId = cardData[indexItemId]
+
+    itemId.qty = itemId.qty + 1
+    itemId.subtotal = itemId.price * itemId.qty
+
+    cart = cardData
     localStorage.setItem('CART', [JSON.stringify(cartData)])
   }
 }
