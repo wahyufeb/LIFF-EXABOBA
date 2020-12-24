@@ -56,6 +56,8 @@ const profileData = async () => {
     picture.classList.add('rounded-full')
 
     profileName.textContent = name
+    profileName.style.fontWeight = 'bold'
+
     profileImage.append(picture)
   } catch (error) {
     console.error(error)
