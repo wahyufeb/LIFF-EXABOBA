@@ -18,13 +18,13 @@ const loginSection = document.querySelector('#login-section')
 
 const initializeApp = () => {
   if(liff.isLoggedIn()) {
-    loginSection.classList.add('hidden')
-    wrapper.classList.remove('hidden')
-    profileData()
+    // loginSection.classList.add('hidden')
+    // wrapper.classList.remove('hidden')
+    // profileData()
     loader.classList.add('hidden')
   }else{
-    loginSection.classList.add('block')
-    wrapper.classList.add('hidden')
+    // loginSection.classList.add('block')
+    // wrapper.classList.add('hidden')
     loader.classList.add('hidden')
   }
 }
