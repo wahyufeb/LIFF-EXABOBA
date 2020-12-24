@@ -98,6 +98,8 @@ const loadListMenu = () => {
     { id:2, name: 'Thai Iced Milk Tea', price:50000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0234%2F6273%2Fproducts%2Fthai_tea_buddha_bubbles_boba_a_large.jpg%3Fv%3D1429819336&f=1&nofb=1' },
     { id:3, name: 'Honeydew Bubble Tea', price:35000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1161%2F4842%2Fproducts%2Fhoneydew_bubble_tea_2_grande.jpg%3Fv%3D1479238222&f=1&nofb=1' },
     { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
+    { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
+    { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
   ]
 
   listMenu.map(menu => {
