@@ -145,8 +145,7 @@ const addToCart = (id) => {
       const itemId = cartData[indexItemId]
       itemId.qty = itemId.qty + 1
       itemId.subtotal = itemId.price * itemId.qty
-      cart = cartData
-      localStorage.setItem('CART', [JSON.stringify(cart)])
+      localStorage.setItem('CART', [JSON.stringify(cartData)])
     }else{
       itemId.qty = 1
       itemId.subtotal = itemId.price * itemId.qty
