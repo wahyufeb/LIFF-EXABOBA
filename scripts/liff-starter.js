@@ -143,8 +143,10 @@ const addToCart = (id) => {
     localStorage.setItem('CART', [JSON.stringify(itemId)])
   }else{
     let cartData = JSON.parse(cartStorage)
-    cartData.push(itemId)
-    localStorage.setItem('CART', JSON.stringify(cartData))
+    console.error('**********')
+    console.error(cartData)
+    console.error('**********')
+    localStorage.setItem('CART', [...cartData, JSON.stringify(itemId)])
   }
 }
 
