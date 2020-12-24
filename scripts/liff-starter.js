@@ -92,7 +92,7 @@ const profileData = async () => {
 
 // LIST MENU SECTION
 const loadListMenu = () => {
-  let listData = null
+  let listData = ''
   const listMenu = [
     { id:1, name: 'Strawberry Bubble Tea', price:60000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmabrocteas.com%2Fmabrocbubbletea.com%2FProducts%2Fimages%2Fproducts%2FMBT_Bubbleshake_Strawberry.jpg&f=1&nofb=1' },
     { id:2, name: 'Thai Iced Milk Tea', price:50000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0234%2F6273%2Fproducts%2Fthai_tea_buddha_bubbles_boba_a_large.jpg%3Fv%3D1429819336&f=1&nofb=1' },
