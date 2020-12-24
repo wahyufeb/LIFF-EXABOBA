@@ -94,7 +94,7 @@ const profileData = async () => {
 const loadListMenu = () => {
   let listData = ''
   const listMenu = [
-    { id:1, name: 'Strawberry Bubble Tea', price:60000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmabrocteas.com%2Fmabrocbubbletea.com%2FProducts%2Fimages%2Fproducts%2FMBT_Bubbleshake_Strawberry.jpg&f=1&nofb=1' },
+    { id:1, name: 'Strawberry Bubble Tea', price:60000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2Ffd%2Fd8%2Feefdd8f39672b0d86f6f19dc53bbed1a--strawberry-tea-milk-tea.jpg&f=1&nofb=1' },
     { id:2, name: 'Thai Iced Milk Tea', price:50000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0234%2F6273%2Fproducts%2Fthai_tea_buddha_bubbles_boba_a_large.jpg%3Fv%3D1429819336&f=1&nofb=1' },
     { id:3, name: 'Honeydew Bubble Tea', price:35000, image_url:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1161%2F4842%2Fproducts%2Fhoneydew_bubble_tea_2_grande.jpg%3Fv%3D1479238222&f=1&nofb=1' },
     { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
@@ -134,32 +134,34 @@ btnCart.addEventListener('click', () => {
 const homeComponentActive = () => {
   route = 'home'
   localStorage.setItem('ROUTE', route);
+
   // home
   homeComponent.classList.remove('hidden')
   btnHome.classList.add('text-red-500')
-  btnHome.classList.add('p-2')
   btnHome.classList.add('rounded-full')
   btnHome.classList.add('bg-red-200')
 
-  // cart
+  // set default cart button
   cartComponent.classList.add('hidden')
   btnCart.className = ''
   btnCart.classList.add('text-white')
+  btnCart.className.add('p-2')
 }
 
 const cartComponentActive = () => {
   route = 'cart'
   localStorage.setItem('ROUTE', route);
-  // home
+
+  // set default home button
   homeComponent.classList.add('hidden')
   btnHome.className = ''
   btnHome.classList.add('text-white')
+  btnHome.classList.add('p-2')
 
   // cart
   cartComponent.classList.remove('hidden')
   btnCart.classList.add('text-white')
   btnCart.classList.add('text-red-500')
-  btnCart.classList.add('p-2')
   btnCart.classList.add('rounded-full')
   btnCart.classList.add('bg-red-200')
 }
