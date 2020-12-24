@@ -36,14 +36,15 @@ loginBtn.addEventListener('click', () => {
 
 // PROFILE SECTION
 const profileName = document.querySelector('#profile-name');
+const profileImage = document.querySelector('#profile-image')
 
 const profileData = async () => {
   try {
     const profile = await liff.getProfile()
     const name = await profile.displayName
-    console.log(profile)
-    console.log(name)
+
     profileName.textContent = name
+    profileImage.setAttribute('src', profile.pictureUrl)
   } catch (error) {
     console.error(error)
   }
