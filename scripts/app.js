@@ -8,7 +8,7 @@ loginBtn.addEventListener('click', () => {
 // user logged
 const profileName = document.querySelector('#profile-name');
 
-if(liff.isLogin()){
+if(liff.isLoggedIn()){
   profileData()
 }
 
