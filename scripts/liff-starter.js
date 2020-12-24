@@ -5,7 +5,9 @@ const cartComponent = document.querySelector('#cart')
 const btnHome = document.querySelector('#btn-home')
 const btnCart = document.querySelector('#btn-cart')
 
-let route = 'cart'
+
+let route = localStorage.getItem('ROUTE') || 'home'
+localStorage.setItem('ROUTE', route);
 
 window.onload = () => {
   routeMode()
@@ -32,7 +34,7 @@ const wrapper = document.querySelector('#wrapper')
 const loginSection = document.querySelector('#login-section')
 
 const initializeApp = () => {
-  if(liff.isLoggedIn() && liff.isInClient()) {
+  if(liff.isLoggedIn()) {
     loginSection.classList.add('hidden')
     wrapper.classList.remove('hidden')
     profileData()
@@ -90,6 +92,7 @@ btnCart.addEventListener('click', () => {
 
 const homeComponentActive = () => {
   route = 'home'
+  localStorage.setItem('ROUTE', route);
   // home
   homeComponent.classList.remove('hidden')
   btnHome.classList.add('text-red-500')
@@ -105,6 +108,7 @@ const homeComponentActive = () => {
 
 const cartComponentActive = () => {
   route = 'cart'
+  localStorage.setItem('ROUTE', route);
   // home
   homeComponent.classList.add('hidden')
   btnHome.className = ''
