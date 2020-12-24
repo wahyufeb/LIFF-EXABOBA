@@ -101,6 +101,7 @@ const loadListMenu = () => {
   ]
 
   for (const menu in listMenu) {
+    console.error(menu)
     listData += `
     <div class="flex justify-between items-center shadow bg-white rounded-lg mb-4 px-4 py-2">
       <div class="flex justify-center items-center space-x-4">
