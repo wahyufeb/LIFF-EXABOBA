@@ -15,20 +15,9 @@ window.onload = () => {
 
 const routeMode = () => {
   if(route === 'home') {
-    homeComponent.classList.remove('hidden')
-    btnHome.classList.add('text-red-500')
-    btnHome.classList.add('p-2')
-    btnHome.classList.add('rounded-full')
-    btnHome.classList.add('bg-red-200')
-    btnCart.classList.add('text-white')
+    homeComponentActive()
   }else{
-    cartComponent.classList.remove('hidden')
-    btnCart.classList.add('text-white')
-    btnCart.classList.add('text-red-500')
-    btnCart.classList.add('p-2')
-    btnCart.classList.add('rounded-full')
-    btnCart.classList.add('bg-red-200')
-    btnHome.classList.add('text-white')
+    cartComponentActive()
   }
 }
 const init = async (liffId) => {
@@ -92,13 +81,39 @@ const profileData = async () => {
 
 // HANDLE BUTTON NAVIGATION BAR
 btnHome.addEventListener('click', () => {
-  homeComponent.classList.remove('hidden')
-  cartComponent.classList.add('hidden')
-  route = 'home'
+  homeComponentActive()
 })
 
 btnCart.addEventListener('click', () => {
-  homeComponent.classList.add('hidden')
-  cartComponent.classList.remove('hidden')
-  route = 'cart'
+  cartComponentActive()
 })
+
+const homeComponentActive = () => {
+  route = 'home'
+  // home
+  homeComponent.classList.remove('hidden')
+  btnHome.classList.add('text-red-500')
+  btnHome.classList.add('p-2')
+  btnHome.classList.add('rounded-full')
+  btnHome.classList.add('bg-red-200')
+
+  // cart
+  cartComponent.classList.add('hidden')
+  btnCart.classList.add('text-white')
+
+}
+
+const cartComponentActive = () => {
+  route = 'cart'
+  // home
+  homeComponent.classList.add('hidden')
+  btnHome.classList.add('text-white')
+
+  // cart
+  cartComponent.classList.remove('hidden')
+  btnCart.classList.add('text-white')
+  btnCart.classList.add('text-red-500')
+  btnCart.classList.add('p-2')
+  btnCart.classList.add('rounded-full')
+  btnCart.classList.add('bg-red-200')
+}
