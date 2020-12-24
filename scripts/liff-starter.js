@@ -127,7 +127,7 @@ const loadListMenu = () => {
 }
 
 // CART SECTION
-const cart = []
+let cart = []
 const addToCart = (id) => {
   //
   let cartStorage = localStorage.getItem('CART') || false
@@ -148,6 +148,7 @@ const addToCart = (id) => {
       const itemId = cartData[indexItemId]
       itemId.qty = itemId.qty + 1
       itemId.subtotal = itemId.price * itemId.qty
+      cart = cartData
       localStorage.setItem('CART', [JSON.stringify(cartData)])
     }else{
       itemId.qty = 1
@@ -172,6 +173,8 @@ btnHome.addEventListener('click', () => {
 btnCart.addEventListener('click', () => {
   cartComponentActive()
   loadCartData()
+  console.error(cart)
+  console.error(JSON.parse(localStorage.getItem('CART')))
 })
 
 const homeComponentActive = () => {
