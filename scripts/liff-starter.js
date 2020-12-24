@@ -18,6 +18,7 @@ const initializeApp = () => {
   if(liff.isLoggedIn()) {
     wrapper.classList.remove('hidden')
     loginSection.classList.add('hidden')
+    profileData()
   }else{
     console.error("Not Logged")
   }
@@ -35,13 +36,9 @@ loginBtn.addEventListener('click', () => {
 // PROFILE SECTION
 const profileName = document.querySelector('#profile-name');
 
-if(liff.isLoggedIn()){
-  profileData()
-}
-
 const profileData = async () => {
   const profile = await liff.getProfile
   const name = profile.displayName
 
-  profileName.innerHTML = name
+  profileName.textContent = name
 }
