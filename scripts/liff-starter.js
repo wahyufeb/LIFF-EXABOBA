@@ -100,8 +100,7 @@ const loadListMenu = () => {
     { id:4, name: 'Mango Bubble Tea', price:30000, image_url:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1' },
   ]
 
-  for (const menu in listMenu) {
-    console.error(menu)
+  listMenu.map(menu => {
     listData += `
     <div class="flex justify-between items-center shadow bg-white rounded-lg mb-4 px-4 py-2">
       <div class="flex justify-center items-center space-x-4">
@@ -118,7 +117,8 @@ const loadListMenu = () => {
       </div>
     </div>
     `
-  }
+  });
+
   homeComponent.innerHTML = listData
 }
 
