@@ -51,8 +51,8 @@ const profileData = async () => {
 
     picture.setAttribute('src', profile.pictureUrl)
     picture.setAttribute('alt', 'Photo Profile')
-    picture.setAttribute('width', '50px')
-    picture.setAttribute('height', '50px')
+    picture.setAttribute('width', '30px')
+    picture.setAttribute('height', '30px')
     picture.classList.add('rounded-full')
 
     profileName.textContent = name
