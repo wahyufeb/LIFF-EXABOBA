@@ -20,6 +20,7 @@ const routeMode = () => {
     homeComponentActive()
   }else{
     cartComponentActive()
+    loadCartData()
   }
 }
 
@@ -48,16 +49,16 @@ loginBtn.addEventListener('click', () => {
 const wrapper = document.querySelector('#wrapper')
 const initializeApp = () => {
   if(liff.isLoggedIn()) {
-    loginSection.classList.add('hidden')
-    wrapper.classList.remove('hidden')
+    // loginSection.classList.add('hidden')
+    // wrapper.classList.remove('hidden')
 
     profileData()
     loadListMenu()
     // Disable loader
     loader.classList.add('hidden')
   }else{
-    loginSection.classList.add('block')
-    wrapper.classList.add('hidden')
+    // loginSection.classList.add('block')
+    // wrapper.classList.add('hidden')
     // Disable loader
     loader.classList.add('hidden')
   }
@@ -128,9 +129,11 @@ const loadListMenu = () => {
 // CART SECTION
 const cart = []
 const addToCart = (id) => {
+  //
   let cartStorage = localStorage.getItem('CART') || false
 
   const itemId = listMenu.find(item => item.id === id)
+
   if(!cartStorage) {
     itemId.qty = 1
     itemId.subtotal = itemId.price * itemId.qty
@@ -156,6 +159,11 @@ const addToCart = (id) => {
   }
 }
 
+const loadCartData = () => {
+  console.error(cart)
+  console.error(JSON.parse(localStorage.getItem('CART')))
+}
+
 // HANDLE BUTTON NAVIGATION BAR
 btnHome.addEventListener('click', () => {
   homeComponentActive()
@@ -163,6 +171,7 @@ btnHome.addEventListener('click', () => {
 
 btnCart.addEventListener('click', () => {
   cartComponentActive()
+  loadCartData()
 })
 
 const homeComponentActive = () => {
