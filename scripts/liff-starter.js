@@ -12,7 +12,7 @@ window.onload = () => {
 }
 
 const routeMode = () => {
-  const route = localStorage.getItem('ROUTE') || 'home'
+  const route = localStorage.getItem('ROUTE') || 'cart'
   localStorage.setItem('ROUTE', route);
   if(route === 'home') {
     homeComponent.classList.remove('hidden')
