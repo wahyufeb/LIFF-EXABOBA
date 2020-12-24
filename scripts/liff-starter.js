@@ -99,14 +99,15 @@ const homeComponentActive = () => {
 
   // cart
   cartComponent.classList.add('hidden')
+  btnCart.className = ''
   btnCart.classList.add('text-white')
-
 }
 
 const cartComponentActive = () => {
   route = 'cart'
   // home
   homeComponent.classList.add('hidden')
+  btnHome.className = ''
   btnHome.classList.add('text-white')
 
   // cart
