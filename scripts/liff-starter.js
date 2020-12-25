@@ -294,7 +294,6 @@ const homeComponentActive = () => {
   btnCart.className = ''
   btnCart.classList.add('text-white')
   btnCart.classList.add('p-2')
-  totalItems.classList.add('hidden')
 }
 
 const cartComponentActive = () => {
