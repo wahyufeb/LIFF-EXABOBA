@@ -294,6 +294,7 @@ const homeComponentActive = () => {
   btnCart.className = ''
   btnCart.classList.add('text-white')
   btnCart.classList.add('p-2')
+  btnCart.classList.add('relative')
 }
 
 const cartComponentActive = () => {
