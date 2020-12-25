@@ -260,7 +260,7 @@ const loadCartData = () => {
     data.map((item, i) => {
       itemsData +=
         `
-      <div class="flex justify-between items-end mb-6 shadow p-2">
+      <div class="flex justify-between items-end mb-6 shadow p-2 rounded-lg">
         <div class="flex space-x-6">
           <div>${i+1}</div>
           <div class="flex flex-col items-start space-y-2">
@@ -292,6 +292,8 @@ const loadCartData = () => {
       </div>
       `
     })
+
+    cartFooter.classList.remove('hidden')
   } else {
     headerData +=
       `
@@ -314,8 +316,6 @@ const loadTotalItems = () => {
     data = []
     totalItems.textContent = 0
   }else{
-    cartFooter.classList.remove('hidden')
-
     data = JSON.parse(cartData)
 
     let itemTotal = data.reduce((prevData, nextData) => prevData + nextData.qty, 0);
