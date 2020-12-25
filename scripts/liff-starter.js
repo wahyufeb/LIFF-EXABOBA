@@ -260,9 +260,8 @@ const loadCartData = () => {
     data.map((item, i) => {
       itemsData +=
         `
-      <div class="flex justify-between items-end mb-6 shadow p-2 rounded-lg">
+      <div class="flex justify-between items-end mb-6 shadow px-4 py-2 rounded-lg">
         <div class="flex space-x-6">
-          <div>${i+1}</div>
           <div class="flex flex-col items-start space-y-2">
             <div>
               <h4 class="text-lg">${item.name}</h4>
