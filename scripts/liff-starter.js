@@ -263,8 +263,6 @@ const loadCartData = () => {
       `
       <h4 class="font-semibold text-lg text-purple-400 text-center">Tidak ada produk di keranjang</h4>
     `
-
-    totalItems.textContent = 0
   }
 
   cartHeader.innerHTML = headerData
