@@ -229,6 +229,7 @@ const loadCartData = () => {
     data = []
   }else{
     data = JSON.parse(cartData)
+    cart = data
   }
 
   let headerData = ''
