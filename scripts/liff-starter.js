@@ -190,8 +190,8 @@ const addToCart = (id) => {
   }
 }
 
-const cartHeader = document.querySelector('#cart-header')
-const cartItems = document.querySelector('#cart-items')
+let cartHeader = document.querySelector('#cart-header')
+let cartItems = document.querySelector('#cart-items')
 
 const loadCartData = () => {
   cartData = localStorage.getItem('CART') || []
@@ -260,6 +260,7 @@ const loadCartData = () => {
       <h4 class="font-semibold text-lg text-purple-400 text-center">Tidak ada produk di keranjang</h4>
     `
   }
+
   cartHeader.innerHTML = headerData
   cartItems.innerHTML = itemsData
 
