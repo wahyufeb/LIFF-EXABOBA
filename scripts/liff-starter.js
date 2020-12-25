@@ -260,7 +260,6 @@ const loadCartData = () => {
     `
   }
   cartHeader.innerHTML = headerData
-
   console.error(cart)
   console.error(JSON.parse(localStorage.getItem('CART')))
 }
