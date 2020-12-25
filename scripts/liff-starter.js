@@ -140,7 +140,7 @@ const loadListMenu = () => {
     listData += `
     <div class="flex justify-between items-center shadow bg-white rounded-lg mb-4 px-4 py-2">
       <div class="flex justify-center items-center space-x-4">
-        <img class="w-16 h-16 object-cover" src="${menu.image_url}" alt="${menu.name}">
+        <img class="w-16 h-16 object-cover rounded-lg" src="${menu.image_url}" alt="${menu.name}">
         <div class="my-2">
           <h4 class="text-lg">${menu.name}</h4>
           <h4 class="text-sm">${toRupiah(menu.price)}</h4>
@@ -257,7 +257,7 @@ const loadCartData = () => {
     data.map((item, i) => {
       itemsData +=
         `
-      <div class="flex justify-between items-end mb-4">
+      <div class="flex justify-between items-end mb-4 shadow">
         <div class="flex space-x-6">
           <div>${i+1}</div>
           <div class="flex flex-col items-start space-y-2">
@@ -292,7 +292,7 @@ const loadCartData = () => {
   } else {
     headerData +=
       `
-      <h4 class="font-semibold text-lg text-purple-400 text-center">Tidak ada produk di keranjang</h4>
+      <h4 class="font-light text-lg text-purple-400 text-center opacity-75">Tidak ada produk di keranjang</h4>
     `
   }
 
