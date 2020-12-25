@@ -189,6 +189,8 @@ const addToCart = (id) => {
       localStorage.setItem('CART', [JSON.stringify(cart)])
     }
   }
+
+  loadTotalItems()
 }
 
 const addQty = (id) => {
@@ -196,7 +198,19 @@ const addQty = (id) => {
   const itemId = cart.find(item => item.id === id)
 
   itemId.qty += 1
-  itemId.subtotal = itemId.qty * price
+  itemId.subtotal = itemId.qty * item.price
+
+  cart[indexItemId] = itemId
+
+  localStorage.setItem('CART', [JSON.stringify(cart)])
+}
+
+const minQty = (id) => {
+  const indexItemId = cart.findIndex(item => item.id === id)
+  const itemId = cart.find(item => item.id === id)
+
+  itemId.qty -= 1
+  itemId.subtotal = itemId.qty * item.price
 
   cart[indexItemId] = itemId
 
@@ -236,8 +250,6 @@ const loadCartData = () => {
     `
 
     data.map((item, i) => {
-      console.log(i)
-      console.log(item)
       itemsData +=
         `
       <div class="flex justify-between items-end mb-4">
@@ -271,9 +283,6 @@ const loadCartData = () => {
         <div class="text-right font-semibold text-xl text-purple-700">Rp.${toRupiah(item.subtotal)}</div>
       </div>
       `
-
-      let itemTotal = data.reduce((prev, next) => prev + next.qty, 0);
-      totalItems.textContent = itemTotal
     })
   } else {
     headerData +=
@@ -284,6 +293,22 @@ const loadCartData = () => {
 
   cartHeader.innerHTML = headerData
   cartItems.innerHTML = itemsData
+
+  loadTotalItems()
+}
+
+const loadTotalItems = () => {
+  let cartData = localStorage.getItem('CART') || false
+  let data = ''
+  if(!cartData){
+    data = []
+    totalItems.textContent = 0
+  }else{
+    data = JSON.parse(cartData)
+    let itemTotal = data.reduce((prev, next) => prev + next.qty, 0);
+    totalItems.textContent = itemTotal
+  }
+
 }
 
 // HANDLE BUTTON NAVIGATION BAR
@@ -344,6 +369,7 @@ const cartComponentActive = () => {
 
   loadCartData()
 }
+
 
 const toRupiah = (val) => {
   return val.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1\.")
