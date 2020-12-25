@@ -1,6 +1,7 @@
 const loader = document.querySelector('#loader')
 const homeComponent = document.querySelector('#home')
 const cartComponent = document.querySelector('#cart')
+const wrapperTotalPrice = document.querySelector('#wrapper-total-price')
 const totalPrice = document.querySelector('#total-price')
 const totalItems = document.querySelector('#total-items')
 
@@ -309,9 +310,9 @@ const loadTotalItems = () => {
   if(!cartData){
     data = []
     totalItems.textContent = 0
-    totalPrice.classList.add('hidden')
+    wrapperTotalPrice.classList.add('hidden')
   }else{
-    totalPrice.classList.remove('hidden')
+    wrapperTotalPrice.classList.remove('hidden')
 
     data = JSON.parse(cartData)
 
@@ -319,7 +320,7 @@ const loadTotalItems = () => {
     let totalPriceData = data.reduce((prevData, nextData) => prevData + nextData.subtotal, 0)
 
     totalItems.textContent = itemTotal
-    totalPrice.textContent = totalPriceData
+    totalPrice.textContent = `Rp.${toRupiah(totalPriceData)}`
   }
 
 }
@@ -353,7 +354,6 @@ const homeComponentActive = () => {
   btnCart.classList.add('p-2')
   btnCart.classList.add('relative')
 
-
   loadCartData()
 }
 
@@ -378,7 +378,6 @@ const cartComponentActive = () => {
   btnCart.classList.add('rounded-full')
   btnCart.classList.add('bg-red-200')
   btnCart.classList.add('relative')
-
 
   loadCartData()
 }
