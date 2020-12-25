@@ -143,11 +143,11 @@ const loadListMenu = () => {
         <img class="w-16 h-16 object-cover" src="${menu.image_url}" alt="${menu.name}">
         <div class="my-2">
           <h4 class="text-lg">${menu.name}</h4>
-          <h4 class="text-sm">${menu.price}</h4>
+          <h4 class="text-sm">${toRupiah(menu.price)}</h4>
         </div>
       </div>
       <div >
-        <button class="w-8 h-8 text-red-500 bg-red-200 m-2 flex items-center justify-center rounded-lg" onClick="addToCart(${menu.id})">
+        <button class="w-8 h-8 text-red-500 bg-red-200 m-2 flex items-center justify-center rounded-lg" onClick="${addToCart(menu.id)}">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
         </button>
       </div>
@@ -244,7 +244,7 @@ const loadCartData = () => {
               <p class="text-sm text-gray-600">Rp.${toRupiah(item.price)}</p>
             </div>
             <div class="flex justify-center text-center space-x-4 items-center">
-              <button class="p-1 bg-red-200 text-red-500 rounded-full">
+              <button class="p-1 bg-red-200 text-red-500 rounded-full" onClick="minQty(${item.id})">
                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                     clip-rule="evenodd">
@@ -252,7 +252,7 @@ const loadCartData = () => {
                 </svg>
               </button>
               <h4 class="font-semibold text-md text-purple-500">${item.qty}</h4>
-              <button class="p-1 bg-green-200 text-green-500 rounded-full">
+              <button class="p-1 bg-green-200 text-green-500 rounded-full" onClick="${addQty(item.id)}">
                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
