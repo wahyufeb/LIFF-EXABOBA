@@ -272,12 +272,10 @@ const loadCartData = () => {
 // HANDLE BUTTON NAVIGATION BAR
 btnHome.addEventListener('click', () => {
   homeComponentActive()
-  loadCartData()
 })
 
 btnCart.addEventListener('click', () => {
   cartComponentActive()
-  loadCartData()
 })
 
 const homeComponentActive = () => {
@@ -299,6 +297,9 @@ const homeComponentActive = () => {
   btnCart.classList.add('text-white')
   btnCart.classList.add('p-2')
   btnCart.classList.add('relative')
+
+
+  loadCartData()
 }
 
 const cartComponentActive = () => {
@@ -322,6 +323,9 @@ const cartComponentActive = () => {
   btnCart.classList.add('rounded-full')
   btnCart.classList.add('bg-red-200')
   btnCart.classList.add('relative')
+
+
+  loadCartData()
 }
 
 const toRupiah = (val) => {
