@@ -191,8 +191,8 @@ const addToCart = (id) => {
   }
 }
 
-const cartHeader = document.querySelector('cart-header')
-const cartItems = document.querySelector('cart-items')
+const cartHeader = document.querySelector('#cart-header')
+const cartItems = document.querySelector('#cart-items')
 
 const loadCartData = () => {
   cartData = localStorage.getItem('CART') || []
