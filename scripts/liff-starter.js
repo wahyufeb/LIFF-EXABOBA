@@ -267,21 +267,17 @@ const loadCartData = () => {
 
   cartHeader.innerHTML = headerData
   cartItems.innerHTML = itemsData
-
-  console.error(cart)
-  console.error(JSON.parse(localStorage.getItem('CART')))
 }
 
 // HANDLE BUTTON NAVIGATION BAR
 btnHome.addEventListener('click', () => {
   homeComponentActive()
+  loadCartData()
 })
 
 btnCart.addEventListener('click', () => {
   cartComponentActive()
   loadCartData()
-  console.error(cart)
-  console.error(JSON.parse(localStorage.getItem('CART')))
 })
 
 const homeComponentActive = () => {
