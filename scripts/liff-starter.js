@@ -198,7 +198,7 @@ const addQty = (id) => {
   const itemId = cart.find(item => item.id === id)
 
   itemId.qty += 1
-  itemId.subtotal = itemId.qty * item.price
+  itemId.subtotal = itemId.qty * itemId.price
 
   cart[indexItemId] = itemId
 
@@ -211,7 +211,7 @@ const minQty = (id) => {
   const itemId = cart.find(item => item.id === id)
 
   itemId.qty -= 1
-  itemId.subtotal = itemId.qty * item.price
+  itemId.subtotal = itemId.qty * itemId.price
 
   cart[indexItemId] = itemId
 
