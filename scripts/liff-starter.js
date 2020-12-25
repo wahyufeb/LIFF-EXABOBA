@@ -255,7 +255,7 @@ const loadCartData = () => {
       </div>
       `
 
-      let a = data.reduce((prev, next) => {
+      let a = data.reduce(prev, next => {
         console.log('====')
         console.log(prev)
         console.log(next)
