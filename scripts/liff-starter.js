@@ -143,7 +143,7 @@ const loadListMenu = () => {
         <img class="w-16 h-16 object-cover rounded-lg" src="${menu.image_url}" alt="${menu.name}">
         <div class="my-2">
           <h4 class="text-lg">${menu.name}</h4>
-          <h4 class="text-sm">${toRupiah(menu.price)}</h4>
+          <h4 class="text-sm">Rp.${toRupiah(menu.price)}</h4>
         </div>
       </div>
       <div >
@@ -257,7 +257,7 @@ const loadCartData = () => {
     data.map((item, i) => {
       itemsData +=
         `
-      <div class="flex justify-between items-end mb-4 shadow">
+      <div class="flex justify-between items-end mb-4 shadow p-2">
         <div class="flex space-x-6">
           <div>${i+1}</div>
           <div class="flex flex-col items-start space-y-2">

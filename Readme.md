@@ -1,7 +1,7 @@
 Catatan
-1. Membuat Daftar Item
-2. Tambah Item Ke Keranjang
-3. Halaman Keranjang
+1. [X] Membuat Daftar Item
+2. [X] Tambah Item Ke Keranjang
+3. [X] Halaman Keranjang
 4. Halaman Checkout
 5. Send Message Pesanan dan Total Harga
-6. Profile
+6. [X] Profile
