@@ -189,14 +189,12 @@ const addToCart = (id) => {
       localStorage.setItem('CART', [JSON.stringify(cart)])
     }
   }
-
   loadTotalItems()
 }
 
 const addQty = (id) => {
   const indexItemId = cart.findIndex(item => item.id === id)
   const itemId = cart.find(item => item.id === id)
-
   itemId.qty += 1
   itemId.subtotal = itemId.qty * itemId.price
 
@@ -209,7 +207,6 @@ const addQty = (id) => {
 const minQty = (id) => {
   const indexItemId = cart.findIndex(item => item.id === id)
   const itemId = cart.find(item => item.id === id)
-
   itemId.qty -= 1
   itemId.subtotal = itemId.qty * itemId.price
 
