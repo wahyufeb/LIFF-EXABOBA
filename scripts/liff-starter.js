@@ -1,7 +1,6 @@
 const loader = document.querySelector('#loader')
 const homeComponent = document.querySelector('#home')
 const cartComponent = document.querySelector('#cart')
-const wrapperTotalPrice = document.querySelector('#wrapper-total-price')
 const totalPrice = document.querySelector('#total-price')
 const totalItems = document.querySelector('#total-items')
 
@@ -225,6 +224,7 @@ const minQty = (id) => {
 
 const cartHeader = document.querySelector('#cart-header')
 const cartItems = document.querySelector('#cart-items')
+const cartFooter = document.querySelector('#cart-footer')
 
 const loadCartData = () => {
   let cartData = localStorage.getItem('CART') || false
@@ -310,20 +310,19 @@ const loadTotalItems = () => {
   if(!cartData){
     data = []
     totalItems.textContent = 0
-  }else{
-    if(data.length !== 0) {
-      wrapperTotalPrice.classList.remove('hidden')
-
-      data = JSON.parse(cartData)
-
-      let itemTotal = data.reduce((prevData, nextData) => prevData + nextData.qty, 0);
-      let totalPriceData = data.reduce((prevData, nextData) => prevData + nextData.subtotal, 0)
-
-      totalItems.textContent = itemTotal
-      totalPrice.textContent = `Rp.${toRupiah(totalPriceData)}`
-    }else{
-      wrapperTotalPrice.classList.add('hidden')
+    if(data.length === 0) {
+      cartFooter.classList.add('hidden')
     }
+  }else{
+    cartFooter.classList.remove('hidden')
+
+    data = JSON.parse(cartData)
+
+    let itemTotal = data.reduce((prevData, nextData) => prevData + nextData.qty, 0);
+    let totalPriceData = data.reduce((prevData, nextData) => prevData + nextData.subtotal, 0)
+
+    totalItems.textContent = itemTotal
+    totalPrice.textContent = `Rp.${toRupiah(totalPriceData)}`
   }
 
 }
@@ -384,7 +383,6 @@ const cartComponentActive = () => {
 
   loadCartData()
 }
-
 
 const toRupiah = (val) => {
   return val.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1\.")
