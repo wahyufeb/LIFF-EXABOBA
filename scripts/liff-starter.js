@@ -255,12 +255,8 @@ const loadCartData = () => {
       </div>
       `
 
-      let a = data.reduce(prev, next => {
-        console.log('====')
-        console.log(prev)
-        console.log(next)
-        console.log('====')
-      });
+      let itemTotal = data.reduce((prev, next) => prev + next.qty, 0);
+      totalItems.textContent = itemTotal
     })
   } else {
     headerData +=
