@@ -52,16 +52,16 @@ loginBtn.addEventListener('click', () => {
 const wrapper = document.querySelector('#wrapper')
 const initializeApp = () => {
   if (liff.isLoggedIn()) {
-    // loginSection.classList.add('hidden')
-    // wrapper.classList.remove('hidden')
+    loginSection.classList.add('hidden')
+    wrapper.classList.remove('hidden')
 
     profileData()
     loadListMenu()
     // Disable loader
     loader.classList.add('hidden')
   } else {
-    // loginSection.classList.add('block')
-    // wrapper.classList.add('hidden')
+    loginSection.classList.add('block')
+    wrapper.classList.add('hidden')
     // Disable loader
     loader.classList.add('hidden')
   }
