@@ -147,7 +147,7 @@ const loadListMenu = () => {
         </div>
       </div>
       <div >
-        <button class="w-8 h-8 text-red-500 bg-red-200 m-2 flex items-center justify-center rounded-lg" onClick="${addToCart(menu.id)}">
+        <button class="w-8 h-8 text-red-500 bg-red-200 m-2 flex items-center justify-center rounded-lg" onClick="addToCart(${menu.id})">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
         </button>
       </div>
@@ -252,7 +252,7 @@ const loadCartData = () => {
                 </svg>
               </button>
               <h4 class="font-semibold text-md text-purple-500">${item.qty}</h4>
-              <button class="p-1 bg-green-200 text-green-500 rounded-full" onClick="${addQty(item.id)}">
+              <button class="p-1 bg-green-200 text-green-500 rounded-full" onClick="addQty(${item.id})">
                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
