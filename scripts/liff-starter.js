@@ -198,8 +198,8 @@ const loadCartData = () => {
   cartData = localStorage.getItem('CART') || []
   const data = cart.length !== 0 ? cart : cartData
 
-  const headerData = ''
-  const itemsData = ''
+  let headerData = ''
+  let itemsData = ''
 
   if (data.length !== 0) {
     headerData +=
