@@ -129,7 +129,6 @@ const loadListMenu = () => {
 // CART SECTION
 let cart = []
 const addToCart = (id) => {
-  //
   let cartStorage = localStorage.getItem('CART') || false
 
   const itemId = listMenu.find(item => item.id === id)
@@ -161,6 +160,14 @@ const addToCart = (id) => {
 }
 
 const loadCartData = () => {
+  cartData = localStorage.getItem('CART') || []
+  const data = cart.length !== 0 ? cart : cartData
+
+  if(data.length !== 0){
+
+  }else{
+
+  }
   console.error(cart)
   console.error(JSON.parse(localStorage.getItem('CART')))
 }
