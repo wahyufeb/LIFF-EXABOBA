@@ -54,7 +54,6 @@ const initializeApp = () => {
   if (liff.isLoggedIn()) {
     loginSection.classList.add('hidden')
     wrapper.classList.remove('hidden')
-
     profileData()
     loadListMenu()
     // Disable loader
