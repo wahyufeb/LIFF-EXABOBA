@@ -26,18 +26,31 @@
         <h1 id="profile-image"></h1>
       </div>
       <div class="my-6">
-        <p class="p-2 text-sm bg-purple-200 text-gray-700 rounded-lg">Halo Selamat Datang <span
-            id="profile-name"></span>, silahkan pilih minuman yang tersedia dibawah 😊</p>
+        <p class="p-2 text-sm bg-purple-200 text-gray-700 rounded-lg">
+          Halo Selamat Datang
+          <span id="profile-name"></span> di
+          <span class="font-semibold text-purple-400">
+            EXA BOBA
+          </span>, silahkan pilih BOBA yang kamu sukai 😋
+        </p>
       </div>
       <div>
         <div id="home" class="hidden height-component flex flex-col overflow-y-auto py-3 mb-8">
         </div>
         <div id="cart" class="hidden height-component">
+          <!-- Cart Header -->
           <div id="cart-header">
           </div>
           <!-- Items -->
           <div id="cart-items" class="mb-12">
           </div>
+          <!-- Total -->
+          <hr>
+            <div class="flex justify-between items-center">
+              <h4 class="text-lg font-semibold">Total</h4>
+              <h4 id="total-price"></h4>
+            </div>
+          <hr>
           <button class="mb-20 px-4 py-2 bg-green-300 text-green-500">Pesan Sekarang</button>
         </div>
       </div>
@@ -50,7 +63,8 @@
           </svg>
         </button>
         <button id="btn-cart" class="p-2 relative">
-          <p id="total-items" class="absolute text-purple-500 rounded-full bg-gray-100 right-0 top-0 text-center font-bold">0</p>
+          <p id="total-items"
+            class="absolute text-purple-500 rounded-full bg-gray-100 right-0 top-0 text-center font-bold">0</p>
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"

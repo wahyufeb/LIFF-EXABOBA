@@ -1,7 +1,8 @@
 const loader = document.querySelector('#loader')
 const homeComponent = document.querySelector('#home')
 const cartComponent = document.querySelector('#cart')
-const totalItems = document.querySelector('#total-items');
+const totalPrice = document.querySelector('#total-price')
+const totalItems = document.querySelector('#total-items')
 
 
 const btnHome = document.querySelector('#btn-home')
@@ -257,7 +258,7 @@ const loadCartData = () => {
     data.map((item, i) => {
       itemsData +=
         `
-      <div class="flex justify-between items-end mb-4 shadow p-2">
+      <div class="flex justify-between items-end mb-6 shadow p-2">
         <div class="flex space-x-6">
           <div>${i+1}</div>
           <div class="flex flex-col items-start space-y-2">
@@ -308,10 +309,17 @@ const loadTotalItems = () => {
   if(!cartData){
     data = []
     totalItems.textContent = 0
+    totalPrice.classList.add('hidden')
   }else{
+    totalPrice.classList.remove('hidden')
+
     data = JSON.parse(cartData)
-    let itemTotal = data.reduce((prev, next) => prev + next.qty, 0);
+
+    let itemTotal = data.reduce((prevData, nextData) => prevData + nextData.qty, 0);
+    let totalPriceData = data.reduce((prevData, nextData) => prevData + nextData.subtotal, 0)
+
     totalItems.textContent = itemTotal
+    totalPrice.textContent = totalPriceData
   }
 
 }
