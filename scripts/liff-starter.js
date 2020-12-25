@@ -3,6 +3,7 @@ const homeComponent = document.querySelector('#home')
 const cartComponent = document.querySelector('#cart')
 const totalItems = document.querySelector('#total-items');
 
+
 const btnHome = document.querySelector('#btn-home')
 const btnCart = document.querySelector('#btn-cart')
 
@@ -253,12 +254,20 @@ const loadCartData = () => {
         <div class="text-right font-semibold text-xl text-purple-700">Rp.${toRupiah(item.subtotal)}</div>
       </div>
       `
+
+      let a = data.reduce((prev, next) => prev.qty + next.qty);
+      console.log('====')
+      console.log(a)
+      totalItems.textContent = a
+      console.log('====')
     })
   } else {
     headerData +=
       `
       <h4 class="font-semibold text-lg text-purple-400 text-center">Tidak ada produk di keranjang</h4>
     `
+
+    totalItems.textContent = 0
   }
 
   cartHeader.innerHTML = headerData
