@@ -191,11 +191,23 @@ const addToCart = (id) => {
   }
 }
 
-let cartHeader = document.querySelector('#cart-header')
-let cartItems = document.querySelector('#cart-items')
+const addQty = (id) => {
+  const indexItemId = cart.findIndex(item => item.id === id)
+  const itemId = cart.find(item => item.id === id)
+
+  itemId.qty += 1
+  itemId.subtotal = itemId.qty * price
+
+  cart[indexItemId] = itemId
+
+  localStorage.setItem('CART', [JSON.stringify(cart)])
+}
+
+const cartHeader = document.querySelector('#cart-header')
+const cartItems = document.querySelector('#cart-items')
 
 const loadCartData = () => {
-  cartData = localStorage.getItem('CART') || []
+  const cartData = localStorage.getItem('CART') || []
   const data = cart.length !== 0 ? cart : JSON.parse(cartData)
 
   let headerData = ''
