@@ -218,7 +218,9 @@ const loadCartData = () => {
       </div>
     `
 
-    data.map(item, i => {
+    data.map((item, i) => {
+      console.log(i)
+      console.log(item)
       itemsData +=
         `
       <div class="flex justify-between items-end mb-4">
