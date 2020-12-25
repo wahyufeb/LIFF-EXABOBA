@@ -262,6 +262,8 @@ const loadCartData = () => {
     `
   }
   cartHeader.innerHTML = headerData
+  cartItems.innerHTML = itemsData
+
   console.error(cart)
   console.error(JSON.parse(localStorage.getItem('CART')))
 }
