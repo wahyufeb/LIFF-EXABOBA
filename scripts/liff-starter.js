@@ -196,7 +196,7 @@ const cartItems = document.querySelector('cart-items')
 
 const loadCartData = () => {
   cartData = localStorage.getItem('CART') || []
-  const data = cart.length !== 0 ? cart : cartData
+  const data = cart.length !== 0 ? cart : JSON.parse(cartData)
 
   let headerData = ''
   let itemsData = ''
