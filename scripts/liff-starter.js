@@ -255,11 +255,12 @@ const loadCartData = () => {
       </div>
       `
 
-      let a = data.reduce((prev, next) => prev.qty + next.qty);
-      console.log('====')
-      console.log(a)
-      totalItems.textContent = a
-      console.log('====')
+      let a = data.reduce((prev, next) => {
+        console.log('====')
+        console.log(prev)
+        console.log(next)
+        console.log('====')
+      });
     })
   } else {
     headerData +=
