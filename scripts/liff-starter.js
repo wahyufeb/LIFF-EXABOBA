@@ -201,7 +201,7 @@ const addQty = (id) => {
   cart[indexItemId] = itemId
 
   localStorage.setItem('CART', [JSON.stringify(cart)])
-  loadTotalItems()
+  loadCartData()
 }
 
 const minQty = (id) => {
@@ -213,7 +213,7 @@ const minQty = (id) => {
   cart[indexItemId] = itemId
 
   localStorage.setItem('CART', [JSON.stringify(cart)])
-  loadTotalItems()
+  loadCartData()
 }
 
 const cartHeader = document.querySelector('#cart-header')
