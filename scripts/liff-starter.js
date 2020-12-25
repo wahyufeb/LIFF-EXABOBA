@@ -8,9 +8,10 @@ const cartHeader = document.querySelector('#cart-header')
 const cartItems = document.querySelector('#cart-items')
 const cartFooter = document.querySelector('#cart-footer')
 
-
 const btnHome = document.querySelector('#btn-home')
 const btnCart = document.querySelector('#btn-cart')
+
+const btnOrderNow = document.querySelector('#order-now')
 
 let route = localStorage.getItem('ROUTE') || 'home'
 localStorage.setItem('ROUTE', route);
@@ -325,6 +326,21 @@ const loadTotalItems = () => {
   }
 
 }
+
+// HANDLE ORDER
+btnOrderNow.addEventListener('click', async () => {
+  try {
+    const sendMessage = await liff.sendMessages([
+      {
+        type: 'text',
+        text:'Welcome'
+      }
+    ])
+    console.log("YEAS")
+  } catch (error) {
+    console.error(error)
+  }
+})
 
 // HANDLE BUTTON NAVIGATION BAR
 btnHome.addEventListener('click', () => {
