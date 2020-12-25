@@ -4,6 +4,10 @@ const cartComponent = document.querySelector('#cart')
 const totalPrice = document.querySelector('#total-price')
 const totalItems = document.querySelector('#total-items')
 
+const cartHeader = document.querySelector('#cart-header')
+const cartItems = document.querySelector('#cart-items')
+const cartFooter = document.querySelector('#cart-footer')
+
 
 const btnHome = document.querySelector('#btn-home')
 const btnCart = document.querySelector('#btn-cart')
@@ -222,9 +226,6 @@ const minQty = (id) => {
   loadCartData()
 }
 
-const cartHeader = document.querySelector('#cart-header')
-const cartItems = document.querySelector('#cart-items')
-const cartFooter = document.querySelector('#cart-footer')
 
 const loadCartData = () => {
   let cartData = localStorage.getItem('CART') || false
@@ -296,6 +297,8 @@ const loadCartData = () => {
       `
       <h4 class="font-light text-lg text-purple-400 text-center opacity-75">Tidak ada produk di keranjang</h4>
     `
+
+    cartFooter.classList.add('hidden')
   }
 
   cartHeader.innerHTML = headerData
@@ -310,9 +313,6 @@ const loadTotalItems = () => {
   if(!cartData){
     data = []
     totalItems.textContent = 0
-    if(data.length === 0) {
-      cartFooter.classList.add('hidden')
-    }
   }else{
     cartFooter.classList.remove('hidden')
 
