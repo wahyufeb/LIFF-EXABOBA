@@ -207,10 +207,15 @@ const addQty = (id) => {
 const minQty = (id) => {
   const indexItemId = cart.findIndex(item => item.id === id)
   const itemId = cart.find(item => item.id === id)
-  itemId.qty -= 1
-  itemId.subtotal = itemId.qty * itemId.price
 
-  cart[indexItemId] = itemId
+  if(itemId.qty === 1){
+    const newCart = cart.filter(item => item.id !== id)
+    cart = newCart
+  }else{
+    itemId.qty -= 1
+    itemId.subtotal = itemId.qty * itemId.price
+    cart[indexItemId] = itemId
+  }
 
   localStorage.setItem('CART', [JSON.stringify(cart)])
   loadCartData()
