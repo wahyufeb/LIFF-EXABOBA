@@ -310,17 +310,20 @@ const loadTotalItems = () => {
   if(!cartData){
     data = []
     totalItems.textContent = 0
-    wrapperTotalPrice.classList.add('hidden')
   }else{
-    wrapperTotalPrice.classList.remove('hidden')
+    if(data.length !== 0) {
+      wrapperTotalPrice.classList.remove('hidden')
 
-    data = JSON.parse(cartData)
+      data = JSON.parse(cartData)
 
-    let itemTotal = data.reduce((prevData, nextData) => prevData + nextData.qty, 0);
-    let totalPriceData = data.reduce((prevData, nextData) => prevData + nextData.subtotal, 0)
+      let itemTotal = data.reduce((prevData, nextData) => prevData + nextData.qty, 0);
+      let totalPriceData = data.reduce((prevData, nextData) => prevData + nextData.subtotal, 0)
 
-    totalItems.textContent = itemTotal
-    totalPrice.textContent = `Rp.${toRupiah(totalPriceData)}`
+      totalItems.textContent = itemTotal
+      totalPrice.textContent = `Rp.${toRupiah(totalPriceData)}`
+    }else{
+      wrapperTotalPrice.classList.add('hidden')
+    }
   }
 
 }
