@@ -289,6 +289,9 @@ const homeComponentActive = () => {
   btnHome.classList.add('rounded-full')
   btnHome.classList.add('bg-red-200')
 
+  totalItems.classList.add('bg-red-200')
+  totalItems.classList.add('text-red-500')
+
   // set default cart button
   cartComponent.classList.add('hidden')
   btnCart.className = ''
@@ -307,9 +310,12 @@ const cartComponentActive = () => {
   btnHome.classList.add('text-white')
   btnHome.classList.add('p-2')
 
+  totalItems.classList.remove('hidden')
+  totalItems.classList.remove('bg-red-200')
+  totalItems.classList.remove('text-red-500')
+
   // cart
   cartComponent.classList.remove('hidden')
-  totalItems.classList.remove('hidden')
   btnCart.classList.add('text-white')
   btnCart.classList.add('text-red-500')
   btnCart.classList.add('rounded-full')
