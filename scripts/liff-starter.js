@@ -533,6 +533,7 @@ btnOrderNow.addEventListener('click', async () => {
 		});
 		loadCartData();
 	} catch (error) {
+    alert(error)
 		console.error(error);
 	}
 });
