@@ -62,12 +62,14 @@ loginBtn.addEventListener('click', () => {
 });
 
 logoutBtn.addEventListener('click', () => {
-	return liff.logout();
+	if (liff.isLoggedIn()) {
+		liff.logout();
+	}
 })
 
 // OPEN WINDOW SECTION
 openWindowBtn.addEventListener('click', () => {
-	return liff.openWindow({
+	liff.openWindow({
 		url: 'https://jajaninkuy.herokuapp.com/',
 		external: true
 	});
