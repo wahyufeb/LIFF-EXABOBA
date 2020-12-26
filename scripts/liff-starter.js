@@ -77,7 +77,7 @@ const initializeApp = () => {
 };
 
 // PROFILE SECTION
-const profileName = document.querySelector('#profile-name');
+const profileName = document.querySelector('.profile-name');
 const profileImage = document.querySelector('#profile-image');
 
 const picture = document.createElement('img');
