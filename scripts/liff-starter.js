@@ -377,11 +377,13 @@ btnOrderNow.addEventListener('click', async () => {
     ]);
     cart = []
     localStorage.removeItem('CART')
-    Swal.fire(
-      'Yeay!',
-      'Berhasil melakukan pemesanan',
-      'success'
-    )
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Berhasil melakukan pemesanan',
+      showConfirmButton: false,
+      timer: 1500
+    })
 	} catch (error) {
 		console.error(error);
 	}
