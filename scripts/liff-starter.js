@@ -381,7 +381,21 @@ btnOrderNow.addEventListener('click', async () => {
 								text: 'world',
 							},
 						],
-					},
+          },
+          footer: {
+            type: 'box',
+            layout: 'horizontal',
+            contents: [
+              {
+                type: 'text',
+                text:'Footer 1'
+              },
+              {
+                type: 'text',
+                text:'Footer 2'
+              },
+            ]
+          }
 				},
 			},
 		]);
