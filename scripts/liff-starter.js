@@ -372,7 +372,7 @@ btnOrderNow.addEventListener('click', async () => {
 						type: 'box',
 						layout: 'vertical',
 						contents: [
-							{
+              {
 								type: 'text',
 								text: 'hello',
 							},
@@ -383,17 +383,27 @@ btnOrderNow.addEventListener('click', async () => {
 						],
 					},
 					footer: {
-						type: 'box',
-						layout: 'horizontal',
+            type: 'box',
+						layout: 'vertical',
 						contents: [
-							{
-								type: 'text',
-								text: 'Total',
-							},
-							{
-								type: 'text',
-								text: `Rp.${toRupiah(totals)}`,
-							},
+              {
+                type: 'text',
+                text: 'Pesanan akan segera diproses dan mohon untuk ditunggu ya😊'
+              },
+              {
+                type: 'box',
+                layout: 'horizontal',
+                contents: [
+                  {
+                    type: 'text',
+                    text: 'Total',
+                  },
+                  {
+                    type: 'text',
+                    text: `Rp.${toRupiah(totals)}`,
+                  },
+                ]
+              },
 						],
 					},
 				},
