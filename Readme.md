@@ -1,4 +1,8 @@
-Catatan
+URL APP : https://liff.line.me/1655387498-BJl6w9xY
+
+I apologize for my commit it's really bad,
+I'm debugging this App in production server(Heroku) because i can't setting redirect URL to my local server when login using Line Account
+
 1. [X] Membuat Daftar Item
 2. [X] Tambah Item Ke Keranjang
 3. [X] Halaman Keranjang
