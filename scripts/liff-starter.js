@@ -334,6 +334,11 @@ btnOrderNow.addEventListener('click', async () => {
       {
         type: 'text',
         text:'Welcome'
+      },
+      {
+        type:'sticker',
+        packageId:'11537',
+        stickerId:'52002754',
       }
     ])
     console.log("YEAS")
