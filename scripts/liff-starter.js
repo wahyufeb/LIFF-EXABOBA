@@ -370,8 +370,8 @@ btnOrderNow.addEventListener('click', async () => {
 				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu 😄`,
 			},
     ]);
-    await cart = []
-    await localStorage.removeItem('CART')
+    cart = []
+    localStorage.removeItem('CART')
 	} catch (error) {
 		console.error(error);
 	}
