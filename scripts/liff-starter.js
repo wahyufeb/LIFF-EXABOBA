@@ -368,79 +368,26 @@ btnOrderNow.addEventListener('click', async () => {
 
 		const sendMessage = await liff.sendMessages([
 			{
-				type: 'text',
-				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
+        type: 'text',
+        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
 			},
+
 			{
-				type: 'bubble',
-				header: {
-					type: 'box',
-					layout: 'vertical',
-					contents: [
-						{
-							type: 'text',
-							text: 'Header text',
-						},
-					],
-				},
-				hero: {
-					type: 'image',
-					url: 'https://i.mydramalist.com/BDBgq_4c.jpg',
-				},
-				body: {
-					type: 'box',
-					layout: 'vertical',
-					contents: [
-						{
-							type: 'text',
-							text: 'Body text',
-						},
-					],
-				},
-				footer: {
-					type: 'box',
-					layout: 'vertical',
-					contents: [
-						{
-							type: 'text',
-							text: 'Footer text',
-						},
-					],
-				},
-				styles: {
-					comment: 'See the example of a bubble style object',
-				},
-			},
-			{
-				type: 'carousel',
-				contents: [
-					{
-						type: 'bubble',
-						body: {
-							type: 'box',
-							layout: 'vertical',
-							contents: [
-								{
-									type: 'text',
-									text: 'First bubble',
-								},
-							],
-						},
-					},
-					{
-						type: 'bubble',
-						body: {
-							type: 'box',
-							layout: 'vertical',
-							contents: [
-								{
-									type: 'text',
-									text: 'Second bubble',
-								},
-							],
-						},
-					},
-				],
+        type: 'bubble',
+        body: {
+          type: 'box',
+          layout: 'vertical',
+          contents: [
+            {
+              type: 'text',
+              text: 'hello',
+            },
+            {
+              type: 'text',
+              text: 'world',
+            },
+          ],
+        },
 			},
 			// {
 			//   type:'sticker',
