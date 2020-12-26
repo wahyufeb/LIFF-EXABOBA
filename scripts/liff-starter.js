@@ -11,6 +11,9 @@ const cartFooter = document.querySelector('#cart-footer');
 const btnHome = document.querySelector('#btn-home');
 const btnCart = document.querySelector('#btn-cart');
 
+const openWindowBtn = document.querySelector('#btn-openWindow')
+const logoutBtn = document.querySelector('#btn-logout')
+
 const btnOrderNow = document.querySelector('#order-now');
 
 // GLOBAL VARIABLE
@@ -58,6 +61,18 @@ loginBtn.addEventListener('click', () => {
 	return liff.login();
 });
 
+logoutBtn.addEventListener('click', () => {
+	return liff.logout();
+})
+
+// OPEN WINDOW SECTION
+openWindowBtn.addEventListener('click', () => {
+	return liff.openWindow({
+		url: 'https://jajaninkuy.herokuapp.com/',
+		external: true
+	});
+})
+
 // INITIALIZE APPLICATION
 const wrapper = document.querySelector('#wrapper');
 const initializeApp = () => {
@@ -77,7 +92,7 @@ const initializeApp = () => {
 };
 
 // PROFILE SECTION
-const profileName = document.querySelector('.profile-name');
+const profileName = document.querySelector('#profile-name');
 const profileImage = document.querySelector('#profile-image');
 
 const picture = document.createElement('img');
