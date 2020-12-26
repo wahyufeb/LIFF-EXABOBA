@@ -63,13 +63,13 @@ loginBtn.addEventListener('click', () => {
 
 logoutBtn.addEventListener('click', () => {
 	if (liff.isLoggedIn()) {
-		liff.logout();
+		return liff.logout();
 	}
 })
 
 // OPEN WINDOW SECTION
 openWindowBtn.addEventListener('click', () => {
-	liff.openWindow({
+	return liff.openWindow({
 		url: 'https://jajaninkuy.herokuapp.com/',
 		external: true
 	});
