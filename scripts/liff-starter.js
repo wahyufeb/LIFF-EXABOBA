@@ -61,6 +61,7 @@ loginBtn.addEventListener('click', () => {
 	return liff.login();
 });
 
+
 logoutBtn.addEventListener('click', () => {
 	if (liff.isLoggedIn()) {
 		liff.logout();
@@ -80,6 +81,8 @@ openWindowBtn.addEventListener('click', () => {
 // INITIALIZE APPLICATION
 const wrapper = document.querySelector('#wrapper');
 const initializeApp = () => {
+	!liff.isInClient() ? logoutBtn.classList.add('hidden') : logoutBtn.classList.remove('hidden')
+
 	if (liff.isLoggedIn()) {
 		loginSection.classList.add('hidden');
 		wrapper.classList.remove('hidden');
