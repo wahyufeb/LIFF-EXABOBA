@@ -367,22 +367,11 @@ btnOrderNow.addEventListener('click', async () => {
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu $asd$`,
-				emojis: [
-					{
-						index: 0,
-						productId: '5ac1bfd5040ab15980c9b435',
-						emojiId: '001',
-					},
-					{
-						index: 13,
-						productId: '5ac1bfd5040ab15980c9b435',
-						emojiId: '002',
-					},
-				],
+				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu 😄`,
 			},
-		]);
-		console.log('YEAS');
+    ]);
+    await cart = []
+    await localStorage.removeItem('CART')
 	} catch (error) {
 		console.error(error);
 	}
