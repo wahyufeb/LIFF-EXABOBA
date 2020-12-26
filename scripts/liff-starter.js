@@ -368,16 +368,74 @@ btnOrderNow.addEventListener('click', async () => {
 
 		const sendMessage = await liff.sendMessages([
 			{
-				type: 'text',
-        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} \nTotal   Rp.${toRupiah(totals)}
-        Pesanan akan segera diproses dan mohon untuk ditunggu`,
+        type: 'text',
+        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
 			},
 			{
-				type: 'location',
-				title: 'my location',
-				address: '〒160-0022 東京都新宿区新宿４丁目１−６',
-				latitude: 35.688806,
-				longitude: 139.701739,
+				type: 'imagemap',
+				baseUrl: 'https://example.com/bot/images/rm001',
+				altText: 'This is an imagemap',
+				baseSize: {
+					width: 1040,
+					height: 1040,
+				},
+				video: {
+					originalContentUrl: 'https://example.com/video.mp4',
+					previewImageUrl: 'https://example.com/video_preview.jpg',
+					area: {
+						x: 0,
+						y: 0,
+						width: 1040,
+						height: 585,
+					},
+					externalLink: {
+						linkUri: 'https://example.com/see_more.html',
+						label: 'See More',
+					},
+				},
+				actions: [
+					{
+						type: 'uri',
+						linkUri: 'https://example.com/',
+						area: {
+							x: 0,
+							y: 586,
+							width: 520,
+							height: 454,
+						},
+					},
+					{
+						type: 'message',
+						text: 'Hello',
+						area: {
+							x: 520,
+							y: 586,
+							width: 520,
+							height: 454,
+						},
+					},
+				],
+			},
+			{
+				type: 'flex',
+				altText: 'this is a flex message',
+				contents: {
+					type: 'bubble',
+					body: {
+						type: 'box',
+						layout: 'vertical',
+						contents: [
+							{
+								type: 'text',
+								text: 'hello',
+							},
+							{
+								type: 'text',
+								text: 'world',
+							},
+						],
+					},
+				},
 			},
 			// {
 			//   type:'sticker',
