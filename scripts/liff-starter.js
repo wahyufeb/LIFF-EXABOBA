@@ -88,7 +88,9 @@ const initializeApp = () => {
 		openWindowBtn.classList.add('hidden')
 		logoutBtn.classList.remove('hidden')
 		btnOrderNow.classList.remove('bg-green-300')
+		btnOrderNow.classList.remove('px-4')
 		btnOrderNow.classList.add('bg-red-300')
+		btnOrderNow.classList.add('px-2')
 		btnOrderNow.setAttribute('disabled', true);
 		btnOrderNow.textContent = 'Tidak dapat memesan pada external browser'
 	}
