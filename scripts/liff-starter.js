@@ -362,9 +362,7 @@ btnOrderNow.addEventListener('click', async () => {
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA \n
-        Berikut rincian pesanannya : \n
-        ${a}`,
+        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA \nBerikut rincian pesanannya : \n${a}`,
 			},
 			// {
 			//   type:'sticker',
