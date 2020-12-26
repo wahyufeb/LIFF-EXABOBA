@@ -371,7 +371,6 @@ btnOrderNow.addEventListener('click', async () => {
         type: 'text',
         text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
 			},
-
 			{
 				type: 'flex',
 				altText: 'this is a flex message',
@@ -391,12 +390,7 @@ btnOrderNow.addEventListener('click', async () => {
 							},
 						],
 					},
-			},
-			// {
-			//   type:'sticker',
-			//   packageId:'11537',
-			//   stickerId:'52002754',
-			// }
+			}
 		]);
 		console.log('YEAS');
 	} catch (error) {
