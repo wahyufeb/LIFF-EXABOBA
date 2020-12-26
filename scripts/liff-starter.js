@@ -95,6 +95,10 @@ const profileData = async () => {
     profileName.style.fontWeight = 'bold'
 
     profileImage.append(picture)
+    return {
+      name,
+      picture: profile.pictureUrl
+    }
   } catch (error) {
     console.error(error)
   }
@@ -333,7 +337,7 @@ btnOrderNow.addEventListener('click', async () => {
     const sendMessage = await liff.sendMessages([
       {
         type: 'text',
-        text:'Welcome'
+        text:`${profileData.name}`
       },
       {
         type:'sticker',
