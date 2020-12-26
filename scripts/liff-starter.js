@@ -353,12 +353,15 @@ const loadTotalItems = () => {
 
 // HANDLE ORDER
 btnOrderNow.addEventListener('click', async () => {
-  try {
-    let a = ''
+	try {
+		let itemData = '';
 		cart.forEach((item, index) => {
-      a += `${index+1}. ${item.name} \n  qty : ${item.qty}    subtotal: Rp.${toRupiah(item.subtotal)} \n\n`
-    });
-    let totals = cart.reduce(
+			itemData += `${index + 1}. ${item.name} \n  qty : ${
+				item.qty
+			}    subtotal: Rp.${toRupiah(item.subtotal)} \n\n`;
+		});
+
+		let totals = cart.reduce(
 			(prevData, nextData) => prevData + nextData.subtotal,
 			0,
 		);
@@ -366,7 +369,15 @@ btnOrderNow.addEventListener('click', async () => {
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${a} \nTotal : ${totals}`,
+        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} \nTotal   Rp.${toRupiah(totals)}
+        Pesanan akan segera diproses dan mohon untuk ditunggu`,
+			},
+			{
+				type: 'location',
+				title: 'my location',
+				address: '〒160-0022 東京都新宿区新宿４丁目１−６',
+				latitude: 35.688806,
+				longitude: 139.701739,
 			},
 			// {
 			//   type:'sticker',
