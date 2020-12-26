@@ -383,6 +383,10 @@ btnOrderNow.addEventListener('click', async () => {
 						},
 					],
 				},
+				hero: {
+					type: 'image',
+					url: 'https://i.mydramalist.com/BDBgq_4c.jpg',
+				},
 				body: {
 					type: 'box',
 					layout: 'vertical',
@@ -406,7 +410,38 @@ btnOrderNow.addEventListener('click', async () => {
 				styles: {
 					comment: 'See the example of a bubble style object',
 				},
-			}
+			},
+			{
+				type: 'carousel',
+				contents: [
+					{
+						type: 'bubble',
+						body: {
+							type: 'box',
+							layout: 'vertical',
+							contents: [
+								{
+									type: 'text',
+									text: 'First bubble',
+								},
+							],
+						},
+					},
+					{
+						type: 'bubble',
+						body: {
+							type: 'box',
+							layout: 'vertical',
+							contents: [
+								{
+									type: 'text',
+									text: 'Second bubble',
+								},
+							],
+						},
+					},
+				],
+			},
 			// {
 			//   type:'sticker',
 			//   packageId:'11537',
