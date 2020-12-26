@@ -13,6 +13,13 @@ const btnCart = document.querySelector('#btn-cart')
 
 const btnOrderNow = document.querySelector('#order-now')
 
+
+// GLOBAL VARIABLE
+const userData = {
+  name:'',
+  picture: ''
+}
+
 let route = localStorage.getItem('ROUTE') || 'home'
 localStorage.setItem('ROUTE', route);
 
@@ -95,6 +102,10 @@ const profileData = async () => {
     profileName.style.fontWeight = 'bold'
 
     profileImage.append(picture)
+
+    // SET GLOBAL VARIABLE
+    userData.name = name
+    userData.picture = profile.pictureUrl
   } catch (error) {
     console.error(error)
   }
@@ -333,13 +344,13 @@ btnOrderNow.addEventListener('click', async () => {
     const sendMessage = await liff.sendMessages([
       {
         type: 'text',
-        text:'Welcome'
+        text:`${userData.name}`
       },
-      {
-        type:'sticker',
-        packageId:'11537',
-        stickerId:'52002754',
-      }
+      // {
+      //   type:'sticker',
+      //   packageId:'11537',
+      //   stickerId:'52002754',
+      // }
     ])
     console.log("YEAS")
   } catch (error) {
