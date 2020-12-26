@@ -362,7 +362,10 @@ btnOrderNow.addEventListener('click', async () => {
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-				text: `${a}`,
+        text: `
+          Terimakasih <b>${userData.name}</b> \n
+          ${a}
+        `,
 			},
 			// {
 			//   type:'sticker',
