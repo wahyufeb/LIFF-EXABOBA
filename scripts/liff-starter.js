@@ -385,7 +385,7 @@ btnOrderNow.addEventListener('click', async () => {
 				},
 				hero: {
 					type: 'image',
-					url: 'https://duckduckgo.com/i/a0be61bf.png',
+					url: 'https://i.mydramalist.com/BDBgq_4c.jpg',
 				},
 				body: {
 					type: 'box',
