@@ -216,7 +216,7 @@ const addToCart = (id) => {
   Swal.fire({
     position: 'center',
     icon: 'success',
-    title: 'Yeay!'
+    title: 'Yeay!',
     text: 'Berhasil menambahkan ke keranjang',
     showConfirmButton: false,
     timer: 1000
@@ -383,7 +383,7 @@ btnOrderNow.addEventListener('click', async () => {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Yeay!'
+      title: 'Yeay!',
       text: 'Berhasil melakukan pemesanan',
       showConfirmButton: false,
       timer: 1000
