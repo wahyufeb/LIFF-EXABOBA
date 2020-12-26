@@ -63,7 +63,9 @@ loginBtn.addEventListener('click', () => {
 
 logoutBtn.addEventListener('click', () => {
 	if (liff.isLoggedIn()) {
-		return liff.logout();
+		liff.logout();
+		loginSection.classList.add('block');
+		wrapper.classList.add('hidden');
 	}
 })
 
