@@ -198,15 +198,15 @@ const addToCart = (id) => {
 			localStorage.setItem('CART', [JSON.stringify(cart)]);
 		}
 	}
-  loadTotalItems();
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Yeay!',
-    text: 'Berhasil menambahkan ke keranjang',
-    showConfirmButton: false,
-    timer: 1000
-  })
+	loadTotalItems();
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: 'Yeay!',
+		text: 'Berhasil menambahkan ke keranjang',
+		showConfirmButton: false,
+		timer: 1000,
+	});
 };
 
 const addQty = (id) => {
@@ -363,18 +363,39 @@ btnOrderNow.addEventListener('click', async () => {
 				type: 'text',
 				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData}Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu ya😊`,
 			},
-    ]);
-    cart = []
-    localStorage.removeItem('CART')
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Yeay!',
-      text: 'Berhasil melakukan pemesanan',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    loadCartData();
+			{
+				type: 'flex',
+				altText: 'this is a flex message',
+				contents: {
+					type: 'bubble',
+					body: {
+						type: 'box',
+						layout: 'vertical',
+						contents: [
+							{
+								type: 'text',
+								text: 'hello',
+							},
+							{
+								type: 'text',
+								text: 'world',
+							},
+						],
+					},
+				},
+			},
+		]);
+		cart = [];
+		localStorage.removeItem('CART');
+		Swal.fire({
+			position: 'center',
+			icon: 'success',
+			title: 'Yeay!',
+			text: 'Berhasil melakukan pemesanan',
+			showConfirmButton: false,
+			timer: 1000,
+		});
+		loadCartData();
 	} catch (error) {
 		console.error(error);
 	}
