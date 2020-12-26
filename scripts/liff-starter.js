@@ -364,35 +364,39 @@ btnOrderNow.addEventListener('click', async () => {
 				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData}Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu ya😊`,
 			},
 			{
-				type: 'carousel',
-				contents: [
-					{
-						type: 'bubble',
-						body: {
-							type: 'box',
-							layout: 'vertical',
-							contents: [
-								{
-									type: 'text',
-									text: 'First bubble',
-								},
-							],
-						},
+				type: 'flex',
+				altText: 'this is a flex message',
+				contents: {
+					type: 'bubble',
+					body: {
+						type: 'box',
+						layout: 'vertical',
+						contents: [
+							{
+								type: 'text',
+								text: 'hello',
+							},
+							{
+								type: 'text',
+								text: 'world',
+							},
+						],
 					},
-					{
-						type: 'bubble',
-						body: {
-							type: 'box',
-							layout: 'vertical',
-							contents: [
-								{
-									type: 'text',
-									text: 'Second bubble',
-								},
-							],
-						},
+					footer: {
+						type: 'box',
+						layout: 'horizontal',
+						contents: [
+							{
+								type: 'text',
+								text: 'Total',
+							},
+							{
+								type: 'text',
+								text: `Rp.${toRupiah(totals)}`,
+							},
+						],
 					},
-				],
+				},
 			},
 		]);
 		cart = [];
