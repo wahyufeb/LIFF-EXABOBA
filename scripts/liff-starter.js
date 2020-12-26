@@ -213,11 +213,14 @@ const addToCart = (id) => {
 		}
 	}
   loadTotalItems();
-  Swal.fire(
-    'Yeay!',
-    'Berhasil menambahkan ke keranjang',
-    'success'
-  )
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Yeay!'
+    text: 'Berhasil menambahkan ke keranjang',
+    showConfirmButton: false,
+    timer: 1000
+  })
 };
 
 const addQty = (id) => {
@@ -380,10 +383,12 @@ btnOrderNow.addEventListener('click', async () => {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Berhasil melakukan pemesanan',
+      title: 'Yeay!'
+      text: 'Berhasil melakukan pemesanan',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1000
     })
+    loadCartData();
 	} catch (error) {
 		console.error(error);
 	}
