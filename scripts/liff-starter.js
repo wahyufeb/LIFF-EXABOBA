@@ -368,28 +368,47 @@ btnOrderNow.addEventListener('click', async () => {
 
 		const sendMessage = await liff.sendMessages([
 			{
-        type: 'text',
-        text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
+				type: 'text',
+				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
 			},
 			{
-				type: 'flex',
-				altText: 'this is a flex message',
-				contents: {
-					type: 'bubble',
-					body: {
-						type: 'box',
-						layout: 'vertical',
-						contents: [
-							{
-								type: 'text',
-								text: 'hello',
-							},
-							{
-								type: 'text',
-								text: 'world',
-							},
-						],
-					},
+				type: 'bubble',
+				header: {
+					type: 'box',
+					layout: 'vertical',
+					contents: [
+						{
+							type: 'text',
+							text: 'Header text',
+						},
+					],
+				},
+				hero: {
+					type: 'image',
+					url: 'https://duckduckgo.com/i/a0be61bf.png',
+				},
+				body: {
+					type: 'box',
+					layout: 'vertical',
+					contents: [
+						{
+							type: 'text',
+							text: 'Body text',
+						},
+					],
+				},
+				footer: {
+					type: 'box',
+					layout: 'vertical',
+					contents: [
+						{
+							type: 'text',
+							text: 'Footer text',
+						},
+					],
+				},
+				styles: {
+					comment: 'See the example of a bubble style object',
 				},
 			},
 			// {
