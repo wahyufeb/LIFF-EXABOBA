@@ -212,7 +212,8 @@ const addToCart = (id) => {
 			localStorage.setItem('CART', [JSON.stringify(cart)]);
 		}
 	}
-	loadTotalItems();
+  loadTotalItems();
+  alert('Berhasil menambahkan ke keranjang')
 };
 
 const addQty = (id) => {
@@ -367,11 +368,12 @@ btnOrderNow.addEventListener('click', async () => {
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu 😄`,
+				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData}Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu ya😊`,
 			},
     ]);
     cart = []
     localStorage.removeItem('CART')
+    alert('Berhasil melakukan pemesanan')
 	} catch (error) {
 		console.error(error);
 	}
