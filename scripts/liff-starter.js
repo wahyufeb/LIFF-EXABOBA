@@ -381,22 +381,53 @@ btnOrderNow.addEventListener('click', async () => {
 								text: 'world',
 							},
 						],
-          },
-          footer: {
-            type: 'box',
-            layout: 'horizontal',
-            contents: [
-              {
-                type: 'text',
-                text:'Footer 1'
-              },
-              {
-                type: 'text',
-                text:'Footer 2'
-              },
-            ]
-          }
+					},
+					footer: {
+						type: 'box',
+						layout: 'horizontal',
+						contents: [
+							{
+								type: 'text',
+								text: 'Footer 1',
+							},
+							{
+								type: 'text',
+								text: 'Footer 2',
+							},
+						],
+					},
 				},
+			},
+			{
+				type: 'carousel',
+				contents: [
+					{
+						type: 'bubble',
+						body: {
+							type: 'box',
+							layout: 'vertical',
+							contents: [
+								{
+									type: 'text',
+									text: 'First bubble',
+								},
+							],
+						},
+					},
+					{
+						type: 'bubble',
+						body: {
+							type: 'box',
+							layout: 'vertical',
+							contents: [
+								{
+									type: 'text',
+									text: 'Second bubble',
+								},
+							],
+						},
+					},
+				],
 			},
 		]);
 		cart = [];
