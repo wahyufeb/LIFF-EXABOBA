@@ -81,7 +81,7 @@ openWindowBtn.addEventListener('click', () => {
 // INITIALIZE APPLICATION
 const wrapper = document.querySelector('#wrapper');
 const initializeApp = () => {
-	!liff.isInClient() ? logoutBtn.classList.add('hidden') : logoutBtn.classList.remove('hidden')
+	liff.isInClient() ? logoutBtn.classList.add('hidden') : logoutBtn.classList.remove('hidden')
 
 	if (liff.isLoggedIn()) {
 		loginSection.classList.add('hidden');
