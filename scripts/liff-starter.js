@@ -361,7 +361,7 @@ btnOrderNow.addEventListener('click', async () => {
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-				text: `${a}`,
+				text: `${cart}`,
       },
 			// {
 			//   type:'sticker',
