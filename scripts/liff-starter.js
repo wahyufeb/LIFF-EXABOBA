@@ -363,7 +363,7 @@ btnOrderNow.addEventListener('click', async () => {
 			{
 				type: 'text',
         text: `
-          Terimakasih <b>${userData.name}</b> \n
+          Terimakasih btnOrderNow ${userData.name} *your text* \n
           ${a}
         `,
 			},
