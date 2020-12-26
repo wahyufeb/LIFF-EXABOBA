@@ -354,7 +354,7 @@ const loadTotalItems = () => {
 // HANDLE ORDER
 btnOrderNow.addEventListener('click', async () => {
 	try {
-		const data = cart.forEach(item, (index) => {
+		const data = cart.forEach((item, index) => {
 			return `${index + 1}. ${item.name} \n`;
 		});
 
