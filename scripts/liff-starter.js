@@ -13,10 +13,6 @@ const btnCart = document.querySelector('#btn-cart')
 
 const btnOrderNow = document.querySelector('#order-now')
 
-// GLOBAL VARIABLE
-let profileName = ''
-let profilePicture = ''
-
 let route = localStorage.getItem('ROUTE') || 'home'
 localStorage.setItem('ROUTE', route);
 
@@ -79,30 +75,26 @@ const initializeApp = () => {
 
 
 // PROFILE SECTION
-const profileNameEl = document.querySelector('#profile-name');
-const profileImageEl = document.querySelector('#profile-image')
+const profileName = document.querySelector('#profile-name');
+const profileImage = document.querySelector('#profile-image')
 
-const pictureEl = document.createElement('img')
+const picture = document.createElement('img')
 
 const profileData = async () => {
   try {
     const profile = await liff.getProfile()
+    const name = await profile.displayName
 
-    // SET GLOBAL VARIABLE
-    profileName = await profile.displayName
-    profilePicture = await profile.pictureUrl
+    picture.setAttribute('src', profile.pictureUrl)
+    picture.setAttribute('alt', 'Photo Profile')
+    picture.setAttribute('width', '40px')
+    picture.setAttribute('height', '40px')
+    picture.classList.add('rounded-full')
 
-    pictureEl.setAttribute('src', profilePicture)
-    pictureEl.setAttribute('alt', 'Photo Profile')
-    pictureEl.setAttribute('width', '40px')
-    pictureEl.setAttribute('height', '40px')
-    pictureEl.classList.add('rounded-full')
+    profileName.textContent = name
+    profileName.style.fontWeight = 'bold'
 
-    profileNameEl.textContent = name
-    profileNameEl.style.fontWeight = 'bold'
-
-    profileImageEl.append(picture)
-
+    profileImage.append(picture)
   } catch (error) {
     console.error(error)
   }
@@ -341,7 +333,7 @@ btnOrderNow.addEventListener('click', async () => {
     const sendMessage = await liff.sendMessages([
       {
         type: 'text',
-        text:`${profileName}`
+        text:'Welcome'
       },
       {
         type:'sticker',
