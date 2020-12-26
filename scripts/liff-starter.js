@@ -363,13 +363,6 @@ btnOrderNow.addEventListener('click', async () => {
 				type: 'text',
 				text: `${a}`,
       },
-      {
-        type: 'text',
-        text:
-        `
-
-        `
-      },
 			{
 				type: 'text',
 				text: '$ LINE emoji $',
