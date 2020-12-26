@@ -353,13 +353,16 @@ const loadTotalItems = () => {
 
 // HANDLE ORDER
 btnOrderNow.addEventListener('click', async () => {
-	try {
-		const itemData = cart.map((item, index) => item.name + '\n');
+  try {
+    let a = ''
+		cart.forEach((item, index) => {
+      a += `${index}. ${item.name}`
+    });
 
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-				text: `${itemData}`,
+				text: `${a}`,
 			},
 			// {
 			//   type:'sticker',
