@@ -136,20 +136,6 @@ const listMenu = [
 		image_url:
 			'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1',
 	},
-	{
-		id: 4,
-		name: 'Mango Bubble Tea',
-		price: 30000,
-		image_url:
-			'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1',
-	},
-	{
-		id: 4,
-		name: 'Mango Bubble Tea',
-		price: 30000,
-		image_url:
-			'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe8%2Fa0%2F6d%2Fe8a06d1411fd7971493a1180d54ffdcf.jpg&f=1&nofb=1',
-	},
 ];
 
 const loadListMenu = () => {
