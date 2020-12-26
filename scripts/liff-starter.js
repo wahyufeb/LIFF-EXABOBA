@@ -356,7 +356,7 @@ btnOrderNow.addEventListener('click', async () => {
   try {
     let a = ''
 		cart.forEach((item, index) => {
-      a += `${index+1}. ${item.name} \n qty : ${item.qty} | subtotal: ${item.subtotal}`
+      a += `${index+1}. ${item.name} \n qty : ${item.qty} | subtotal: Rp.${toRupiah(item.subtotal)} \n`
     });
 
 		const sendMessage = await liff.sendMessages([
