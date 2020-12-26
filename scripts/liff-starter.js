@@ -213,7 +213,11 @@ const addToCart = (id) => {
 		}
 	}
   loadTotalItems();
-  alert('Berhasil menambahkan ke keranjang')
+  Swal.fire(
+    'Yeay!',
+    'Berhasil menambahkan ke keranjang',
+    'success'
+  )
 };
 
 const addQty = (id) => {
@@ -373,7 +377,11 @@ btnOrderNow.addEventListener('click', async () => {
     ]);
     cart = []
     localStorage.removeItem('CART')
-    alert('Berhasil melakukan pemesanan')
+    Swal.fire(
+      'Yeay!',
+      'Berhasil melakukan pemesanan',
+      'success'
+    )
 	} catch (error) {
 		console.error(error);
 	}
