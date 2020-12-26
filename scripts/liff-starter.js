@@ -355,11 +355,7 @@ const loadTotalItems = () => {
 btnOrderNow.addEventListener('click', async () => {
 	try {
     const a = cart.map((item, index) => {
-      return `
-      ------------------------------------------------------
-      ${index+1}. ${item.name} \n
-      ------------------------------------------------------
-      `
+      return `${index+1}. ${item.name} \n`
     });
 
 		const sendMessage = await liff.sendMessages([
@@ -367,22 +363,6 @@ btnOrderNow.addEventListener('click', async () => {
 				type: 'text',
 				text: `${a}`,
       },
-			{
-				type: 'text',
-				text: '$ LINE emoji $',
-				emojis: [
-					{
-						index: 0,
-						productId: '5ac1bfd5040ab15980c9b435',
-						emojiId: '001',
-					},
-					{
-						index: 13,
-						productId: '5ac1bfd5040ab15980c9b435',
-						emojiId: '002',
-					},
-				],
-			},
 			// {
 			//   type:'sticker',
 			//   packageId:'11537',
