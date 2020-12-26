@@ -356,9 +356,7 @@ btnOrderNow.addEventListener('click', async () => {
 	try {
 		let itemData = '';
 		cart.forEach((item, index) => {
-			itemData += `${index + 1}. ${item.name} \n  qty : ${
-				item.qty
-			}    subtotal: Rp.${toRupiah(item.subtotal)} \n\n`;
+			itemData += `${index + 1}. ${item.name} \n  qty : ${item.qty}    subtotal: Rp.${toRupiah(item.subtotal)} \n\n`;
 		});
 
 		let totals = cart.reduce(
@@ -368,29 +366,9 @@ btnOrderNow.addEventListener('click', async () => {
 
 		const sendMessage = await liff.sendMessages([
 			{
-        type: 'text',
+				type: 'text',
         text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData} Total : Rp.${toRupiah(totals)} \nPesanan akan segera diproses dan mohon untuk ditunggu`,
 			},
-			{
-				type: 'flex',
-				altText: 'this is a flex message',
-				contents: {
-					type: 'bubble',
-					body: {
-						type: 'box',
-						layout: 'vertical',
-						contents: [
-							{
-								type: 'text',
-								text: 'hello',
-							},
-							{
-								type: 'text',
-								text: 'world',
-							},
-						],
-					},
-			}
 		]);
 		console.log('YEAS');
 	} catch (error) {
