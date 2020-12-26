@@ -84,6 +84,7 @@ const initializeApp = () => {
 	if(liff.isInClient()) {
 		logoutBtn.classList.add('hidden')
 		openWindowBtn.classList.remove('hidden')
+		btnOrderNow.textContent = 'Tidak dapat memesan pada external browser'
 	}else{
 		openWindowBtn.classList.add('hidden')
 		logoutBtn.classList.remove('hidden')
