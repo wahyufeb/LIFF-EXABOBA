@@ -356,14 +356,13 @@ btnOrderNow.addEventListener('click', async () => {
   try {
     let a = ''
 		cart.forEach((item, index) => {
-      a += `${index+1}. ${item.name} \n qty : ${item.qty} | subtotal: Rp.${toRupiah(item.subtotal)} \n`
+      a += `${index+1}. ${item.name} \n qty : ${item.qty} | subtotal: Rp.${toRupiah(item.subtotal)} \n\n`
     });
 
 		const sendMessage = await liff.sendMessages([
 			{
 				type: 'text',
-        text: `Hai ${userData.name},
-        Terimakasih telah memesan minuman pada EXA BOBA \n \n${a}`,
+        text: `Hai ${userData.name}, \n Terimakasih telah memesan minuman pada EXA BOBA \n \n${a}`,
 			},
 			// {
 			//   type:'sticker',
