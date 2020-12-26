@@ -359,7 +359,11 @@ btnOrderNow.addEventListener('click', async () => {
 			{
 				type: 'text',
 				text: `${a}`,
-			},
+      },
+      {
+        type: 'text',
+        text: `Baris ke 1\n Baris ke 2\n Baris ke 3\n ${a}`
+      },
 			{
 				type: 'text',
 				text: '$ LINE emoji $',
