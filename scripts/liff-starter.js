@@ -88,6 +88,7 @@ logoutBtn.addEventListener('click', () => {
 		liff.logout();
 		loginSection.classList.remove('hidden');
 		wrapper.classList.add('hidden');
+		if(locaStorage.getItem('CART')) localStorage.removeItem('CART')
 	}
 });
 
