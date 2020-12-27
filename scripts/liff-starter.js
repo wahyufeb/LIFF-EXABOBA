@@ -1,3 +1,4 @@
+// Define variable
 const loader = document.querySelector('#loader');
 const homeComponent = document.querySelector('#home');
 const cartComponent = document.querySelector('#cart');
@@ -16,12 +17,13 @@ const logoutBtn = document.querySelector('#btn-logout')
 
 const btnOrderNow = document.querySelector('#order-now');
 
-// GLOBAL VARIABLE
+// Variable for User Data
 const userData = {
 	name: '',
 	picture: '',
 };
 
+// Set default route
 let route = localStorage.getItem('ROUTE') || 'home';
 localStorage.setItem('ROUTE', route);
 
@@ -31,7 +33,11 @@ window.onload = () => {
 	init(liffId);
 };
 
-// ROUTE COMPONENT
+/**
+* ROUTE SECTION
+* Handle render component by route name
+* Check if route is home call homponentActive and then if route not home call cartComponentActive
+*/
 const routeMode = () => {
 	if (route === 'home') {
 		homeComponentActive();
@@ -41,7 +47,12 @@ const routeMode = () => {
 	}
 };
 
-// INITIALIZE LIFF
+
+/**
+* INITIALIZE LIFF SECTION
+* Init LIFF using liff.init()
+* @param {string} liffId The liff ID from Line Developer Console
+*/
 const init = async (liffId) => {
 	try {
 		const initialize = await liff.init({
@@ -53,14 +64,19 @@ const init = async (liffId) => {
 	}
 };
 
-// AUTHENTICATION SECTION
+
+/**
+* AUTHENTICATION SECTION
+* Define variable for login section, login button and logout button
+* login to LINE account using liff.login()
+* logout from application using liff.logout
+*/
 const loginSection = document.querySelector('#login-section');
 const loginBtn = document.querySelector('#login');
 
 loginBtn.addEventListener('click', () => {
 	return liff.login();
 });
-
 
 logoutBtn.addEventListener('click', () => {
 	if (liff.isLoggedIn()) {
@@ -70,7 +86,11 @@ logoutBtn.addEventListener('click', () => {
 	}
 })
 
-// OPEN WINDOW SECTION
+
+/**
+* OPEN WINDOW SECTION
+* Open the LIFF application in external browser using liff.openWindow()
+*/
 openWindowBtn.addEventListener('click', () => {
 	return liff.openWindow({
 		url: 'https://jajaninkuy.herokuapp.com/',
@@ -78,8 +98,15 @@ openWindowBtn.addEventListener('click', () => {
 	});
 })
 
-// INITIALIZE APPLICATION
+
+/**
+* INITIALIZE APPLICATION
+* Handle if app opened in external browser show logout button, using liff.isInClient()
+* Handle if app opened in Line Application show open window button, using liff.isInClient()
+* Handle if user loggedin using liff.isLoggedIn() and then call profileData() & loadListMenu()
+*/
 const wrapper = document.querySelector('#wrapper');
+
 const initializeApp = () => {
 	if(liff.isInClient()) {
 		logoutBtn.classList.add('hidden')
@@ -87,6 +114,8 @@ const initializeApp = () => {
 	}else{
 		openWindowBtn.classList.add('hidden')
 		logoutBtn.classList.remove('hidden')
+
+		// set default style order button
 		btnOrderNow.classList.remove('bg-green-300')
 		btnOrderNow.classList.remove('px-4')
 		btnOrderNow.classList.add('bg-red-300')
@@ -98,19 +127,28 @@ const initializeApp = () => {
 	if (liff.isLoggedIn()) {
 		loginSection.classList.add('hidden');
 		wrapper.classList.remove('hidden');
+
+		// load profile and menu
 		profileData();
 		loadListMenu();
-		// Disable loader
+
+		// disable loader
 		loader.classList.add('hidden');
 	} else {
 		loginSection.classList.add('block');
 		wrapper.classList.add('hidden');
-		// Disable loader
+
+		// disable loader
 		loader.classList.add('hidden');
 	}
 };
 
-// PROFILE SECTION
+
+/**
+* PROFILE SECTION
+* Define profile variables and element
+* Load profile data using liff.getProfile()
+*/
 const profileName = document.querySelector('#profile-name');
 const profileImage = document.querySelector('#profile-image');
 
@@ -121,6 +159,7 @@ const profileData = async () => {
 		const profile = await liff.getProfile();
 		const name = await profile.displayName;
 
+		// set default profile image to img element
 		picture.setAttribute('src', profile.pictureUrl);
 		picture.setAttribute('alt', 'Photo Profile');
 		picture.setAttribute('width', '40px');
@@ -132,7 +171,7 @@ const profileData = async () => {
 
 		profileImage.append(picture);
 
-		// SET GLOBAL VARIABLE
+		// set user data variable
 		userData.name = name;
 		userData.picture = profile.pictureUrl;
 	} catch (error) {
@@ -140,7 +179,12 @@ const profileData = async () => {
 	}
 };
 
-// LIST MENU SECTION
+
+/**
+* LIST MENU SECTION
+* Define list menu variable
+* Load list menu, create and set element list menu to homeComponent
+*/
 const listMenu = [
 	{
 		id: 1,
@@ -201,8 +245,20 @@ const loadListMenu = () => {
 	homeComponent.innerHTML = listData;
 };
 
-// CART SECTION
+
+/**
+* CART SECTION
+* Define cart variable
+* Cart item consists of id, name, price, image_url, qty and subtotal
+*/
 let cart = [];
+
+/**
+* Add to cart and set localStorage to save cart data
+* Check if item is exists in the cart then update qty and subtotal
+* Call loadTotalItems() to load updated data for total items and total price
+* Show sweetalert
+*/
 const addToCart = (id) => {
 	let cartStorage = localStorage.getItem('CART') || false;
 
@@ -217,11 +273,14 @@ const addToCart = (id) => {
 	} else {
 		const cartData = JSON.parse(cartStorage);
 		const checkItemExist = cartData.find((item) => item.id === id);
+
 		if (checkItemExist) {
 			const indexItemId = cartData.findIndex((item) => item.id === id);
+
 			const itemId = cartData[indexItemId];
 			itemId.qty = itemId.qty + 1;
 			itemId.subtotal = itemId.price * itemId.qty;
+
 			cart = cartData;
 			localStorage.setItem('CART', [JSON.stringify(cartData)]);
 		} else {
@@ -232,7 +291,9 @@ const addToCart = (id) => {
 			localStorage.setItem('CART', [JSON.stringify(cart)]);
 		}
 	}
-	loadTotalItems();
+
+	loadCartData();
+
 	Swal.fire({
 		position: 'center',
 		icon: 'success',
@@ -243,6 +304,9 @@ const addToCart = (id) => {
 	});
 };
 
+/**
+* Add qty item in the cart and set to localStorange
+*/
 const addQty = (id) => {
 	const indexItemId = cart.findIndex((item) => item.id === id);
 	const itemId = cart.find((item) => item.id === id);
