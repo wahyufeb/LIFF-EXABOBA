@@ -1,4 +1,4 @@
-// Define variable
+// define variable
 const loader = document.querySelector('#loader');
 const homeComponent = document.querySelector('#home');
 const cartComponent = document.querySelector('#cart');
@@ -12,18 +12,18 @@ const cartFooter = document.querySelector('#cart-footer');
 const btnHome = document.querySelector('#btn-home');
 const btnCart = document.querySelector('#btn-cart');
 
-const openWindowBtn = document.querySelector('#btn-openWindow')
-const logoutBtn = document.querySelector('#btn-logout')
+const openWindowBtn = document.querySelector('#btn-openWindow');
+const logoutBtn = document.querySelector('#btn-logout');
 
 const btnOrderNow = document.querySelector('#order-now');
 
-// Variable for User Data
+// variable for user data
 const userData = {
 	name: '',
 	picture: '',
 };
 
-// Set default route
+// set default route
 let route = localStorage.getItem('ROUTE') || 'home';
 localStorage.setItem('ROUTE', route);
 
@@ -34,10 +34,10 @@ window.onload = () => {
 };
 
 /**
-* ROUTE SECTION
-* Handle render component by route name
-* Check if route is home call homponentActive and then if route not home call cartComponentActive
-*/
+ * ROUTE SECTION
+ * Handle render component by route name
+ * Check if route is home call homponentActive and then if route not home call cartComponentActive
+ */
 const routeMode = () => {
 	if (route === 'home') {
 		homeComponentActive();
@@ -47,12 +47,11 @@ const routeMode = () => {
 	}
 };
 
-
 /**
-* INITIALIZE LIFF SECTION
-* Init LIFF using liff.init()
-* @param {string} liffId The liff ID from Line Developer Console
-*/
+ * INITIALIZE LIFF SECTION
+ * Init LIFF using liff.init()
+ * @param {string} liffId The liff ID from Line Developer Console
+ */
 const init = async (liffId) => {
 	try {
 		const initialize = await liff.init({
@@ -60,17 +59,23 @@ const init = async (liffId) => {
 		});
 		await initializeApp();
 	} catch (error) {
-		console.error(error);
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Error',
+			text: error,
+			showConfirmButton: false,
+			timer: 1500,
+		});
 	}
 };
 
-
 /**
-* AUTHENTICATION SECTION
-* Define variable for login section, login button and logout button
-* login to LINE account using liff.login()
-* logout from application using liff.logout
-*/
+ * AUTHENTICATION SECTION
+ * Define variable for login section, login button and logout button
+ * login to LINE account using liff.login()
+ * logout from application using liff.logout()
+ */
 const loginSection = document.querySelector('#login-section');
 const loginBtn = document.querySelector('#login');
 
@@ -84,44 +89,42 @@ logoutBtn.addEventListener('click', () => {
 		loginSection.classList.remove('hidden');
 		wrapper.classList.add('hidden');
 	}
-})
-
+});
 
 /**
-* OPEN WINDOW SECTION
-* Open the LIFF application in external browser using liff.openWindow()
-*/
+ * OPEN WINDOW SECTION
+ * Open the LIFF application in external browser using liff.openWindow()
+ */
 openWindowBtn.addEventListener('click', () => {
 	return liff.openWindow({
 		url: 'https://jajaninkuy.herokuapp.com/',
-		external: true
+		external: true,
 	});
-})
-
+});
 
 /**
-* INITIALIZE APPLICATION
-* Handle if app opened in external browser show logout button, using liff.isInClient()
-* Handle if app opened in Line Application show open window button, using liff.isInClient()
-* Handle if user loggedin using liff.isLoggedIn() and then call profileData() & loadListMenu()
-*/
+ * INITIALIZE APPLICATION
+ * Handle if app opened in external browser show logout button, using liff.isInClient()
+ * Handle if app opened in Line Application show open window button, using liff.isInClient()
+ * Handle if user logged using liff.isLoggedIn() and then call profileData() & loadListMenu()
+ */
 const wrapper = document.querySelector('#wrapper');
 
 const initializeApp = () => {
-	if(liff.isInClient()) {
-		logoutBtn.classList.add('hidden')
-		openWindowBtn.classList.remove('hidden')
-	}else{
-		openWindowBtn.classList.add('hidden')
-		logoutBtn.classList.remove('hidden')
+	if (liff.isInClient()) {
+		logoutBtn.classList.add('hidden');
+		openWindowBtn.classList.remove('hidden');
+	} else {
+		openWindowBtn.classList.add('hidden');
+		logoutBtn.classList.remove('hidden');
 
 		// set default style order button
-		btnOrderNow.classList.remove('bg-green-300')
-		btnOrderNow.classList.remove('px-4')
-		btnOrderNow.classList.add('bg-red-300')
-		btnOrderNow.classList.add('px-2')
+		btnOrderNow.classList.remove('bg-green-300');
+		btnOrderNow.classList.remove('px-4');
+		btnOrderNow.classList.add('bg-red-300');
+		btnOrderNow.classList.add('px-2');
 		btnOrderNow.setAttribute('disabled', true);
-		btnOrderNow.textContent = 'Tidak dapat memesan pada external browser'
+		btnOrderNow.textContent = 'Tidak dapat memesan pada external browser';
 	}
 
 	if (liff.isLoggedIn()) {
@@ -143,12 +146,11 @@ const initializeApp = () => {
 	}
 };
 
-
 /**
-* PROFILE SECTION
-* Define profile variables and element
-* Load profile data using liff.getProfile()
-*/
+ * PROFILE SECTION
+ * Define profile variables and element
+ * Load profile data using liff.getProfile()
+ */
 const profileName = document.querySelector('#profile-name');
 const profileImage = document.querySelector('#profile-image');
 
@@ -175,16 +177,22 @@ const profileData = async () => {
 		userData.name = name;
 		userData.picture = profile.pictureUrl;
 	} catch (error) {
-		console.error(error);
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Error',
+			text: error,
+			showConfirmButton: false,
+			timer: 1500,
+		});
 	}
 };
 
-
 /**
-* LIST MENU SECTION
-* Define list menu variable
-* Load list menu, create and set element list menu to homeComponent
-*/
+ * LIST MENU SECTION
+ * Define list menu variable
+ * Load list menu, create and set element list menu to homeComponent
+ */
 const listMenu = [
 	{
 		id: 1,
@@ -245,20 +253,20 @@ const loadListMenu = () => {
 	homeComponent.innerHTML = listData;
 };
 
-
 /**
-* CART SECTION
-* Define cart variable
-* Cart item consists of id, name, price, image_url, qty and subtotal
-*/
+ * CART SECTION
+ * Define cart variable
+ * Cart item consists of id, name, price, image_url, qty and subtotal
+ */
 let cart = [];
 
+
 /**
-* Add to cart and set localStorage to save cart data
-* Check if item is exists in the cart then update qty and subtotal
-* Call loadTotalItems() to load updated data for total items and total price
-* Show sweetalert
-*/
+ * Add to cart and set localStorage to save cart data
+ * Check if item is exists in the cart then update qty and subtotal
+ * Call loadCartData() to load updated cart data
+ * Show sweetalert 'Successfully added to cart'
+ */
 const addToCart = (id) => {
 	let cartStorage = localStorage.getItem('CART') || false;
 
@@ -282,7 +290,7 @@ const addToCart = (id) => {
 			itemId.subtotal = itemId.price * itemId.qty;
 
 			cart = cartData;
-			localStorage.setItem('CART', [JSON.stringify(cartData)]);
+			localStorage.setItem('CART', [JSON.stringify(cart)]);
 		} else {
 			itemId.qty = 1;
 			itemId.subtotal = itemId.price * itemId.qty;
@@ -305,8 +313,9 @@ const addToCart = (id) => {
 };
 
 /**
-* Add qty item in the cart and set to localStorange
-*/
+ * Add qty item in the cart and set to localStorange
+ * Call loadCartData() to load updated cart data
+ */
 const addQty = (id) => {
 	const indexItemId = cart.findIndex((item) => item.id === id);
 	const itemId = cart.find((item) => item.id === id);
@@ -319,6 +328,10 @@ const addQty = (id) => {
 	loadCartData();
 };
 
+/**
+ * reduce qty item in the cart and set to localStorange
+ * Call loadCartData() to load updated cart data
+ */
 const minQty = (id) => {
 	const indexItemId = cart.findIndex((item) => item.id === id);
 	const itemId = cart.find((item) => item.id === id);
@@ -336,6 +349,11 @@ const minQty = (id) => {
 	loadCartData();
 };
 
+/**
+ * Load cart data from localStorage
+ * Set cart header element, cart item element, and cart footer element
+ * Call loadTotalItems() to load updated total items and total price
+ */
 const loadCartData = () => {
 	let cartData = localStorage.getItem('CART') || false;
 	let data = '';
@@ -420,6 +438,9 @@ const loadCartData = () => {
 	loadTotalItems();
 };
 
+/**
+ * Load total items and total price
+ */
 const loadTotalItems = () => {
 	let cartData = localStorage.getItem('CART') || false;
 	let data = '';
@@ -443,7 +464,13 @@ const loadTotalItems = () => {
 	}
 };
 
-// HANDLE ORDER
+/**
+ * ORDER SECTION
+ * Order and send messsage when order button clicked, send message using liff.sendMessages()
+ * Then content of message is about ordered item, qty, subtotal and total must be pay
+ * Set cart and locaStorage to empty and call loadCartData() to load updated cart data
+ * Show sweetalert 'Order Successfully'
+ */
 btnOrderNow.addEventListener('click', async () => {
 	try {
 		let itemData = '';
@@ -462,8 +489,10 @@ btnOrderNow.addEventListener('click', async () => {
 				text: `Hai ${userData.name}, \nTerimakasih telah memesan minuman di EXA BOBA\n \nBerikut rincian pesanannya : \n\n${itemData}Total : Rp.${toRupiah(totals)} \n\nPesanan akan segera diproses dan mohon untuk ditunggu ya😊`,
 			},
 		]);
+
 		cart = [];
 		localStorage.removeItem('CART');
+
 		Swal.fire({
 			position: 'center',
 			icon: 'success',
@@ -472,27 +501,36 @@ btnOrderNow.addEventListener('click', async () => {
 			showConfirmButton: false,
 			timer: 1000,
 		});
+
 		loadCartData();
 	} catch (error) {
-    alert(error)
-		console.error(error);
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Error',
+			text: error,
+			showConfirmButton: false,
+			timer: 1500,
+		});
 	}
 });
 
-// HANDLE BUTTON NAVIGATION BAR
+// handle button for switching route to home
 btnHome.addEventListener('click', () => {
 	homeComponentActive();
 });
 
+// handle button for switching route to cart
 btnCart.addEventListener('click', () => {
 	cartComponentActive();
 });
 
+// set default class if homeComponent active & call loadCartData()
 const homeComponentActive = () => {
 	route = 'home';
 	localStorage.setItem('ROUTE', route);
 
-	// home
+	// class home section
 	homeComponent.classList.remove('hidden');
 	btnHome.classList.add('text-red-500');
 	btnHome.classList.add('rounded-full');
@@ -501,7 +539,7 @@ const homeComponentActive = () => {
 	totalItems.classList.add('bg-red-200');
 	totalItems.classList.add('text-red-500');
 
-	// set default cart button
+	// class cart section
 	cartComponent.classList.add('hidden');
 	btnCart.className = '';
 	btnCart.classList.add('text-white');
@@ -511,11 +549,12 @@ const homeComponentActive = () => {
 	loadCartData();
 };
 
+// set default class if cartComponent active & call loadCartData()
 const cartComponentActive = () => {
 	route = 'cart';
 	localStorage.setItem('ROUTE', route);
 
-	// set default home button
+	// class home section
 	homeComponent.classList.add('hidden');
 	btnHome.className = '';
 	btnHome.classList.add('text-white');
@@ -525,7 +564,7 @@ const cartComponentActive = () => {
 	totalItems.classList.remove('bg-red-200');
 	totalItems.classList.remove('text-red-500');
 
-	// cart
+	// class cart section
 	cartComponent.classList.remove('hidden');
 	btnCart.classList.add('text-white');
 	btnCart.classList.add('text-red-500');
@@ -536,6 +575,7 @@ const cartComponentActive = () => {
 	loadCartData();
 };
 
+// convert to rupiah format
 const toRupiah = (val) => {
 	return val.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1.');
 };
